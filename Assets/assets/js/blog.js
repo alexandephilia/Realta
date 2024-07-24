@@ -1,114 +1,3 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const blogPosts = document.querySelectorAll('.blog-post');
-  const paginationDots = document.querySelectorAll('.pagination span');
-  const blogPostsContainer = document.getElementById('blog-posts-container');
-  let startX, moveX;
-  let currentPage = 0;
-
-  function showPage(pageIndex) {
-    paginationDots.forEach(d => d.classList.remove('active'));
-    paginationDots[pageIndex].classList.add('active');
-    console.log(`Switched to page ${pageIndex + 1}`);
-
-    // Simulate content change with animation
-    blogPosts.forEach(post => {
-      post.style.animation = 'none';
-      post.offsetHeight; // Trigger reflow
-      post.style.animation = null;
-    });
-
-    // Update blog posts display
-    const postsPerPage = 3;
-    const start = pageIndex * postsPerPage;
-    const end = start + postsPerPage;
-    blogPosts.forEach((post, index) => {
-      post.style.display = (index >= start && index < end) ? 'block' : 'none';
-    });
-  }
-
-  function handleSwipe(direction) {
-    currentPage += direction;
-    if (currentPage < 0) currentPage = paginationDots.length - 1;
-    if (currentPage >= paginationDots.length) currentPage = 0;
-    showPage(currentPage);
-  }
-
-  // Touch events for swiping
-  blogPostsContainer.addEventListener('touchstart', (e) => {
-    startX = e.touches[0].clientX;
-  });
-
-  blogPostsContainer.addEventListener('touchmove', (e) => {
-    moveX = e.touches[0].clientX;
-  });
-
-  blogPostsContainer.addEventListener('touchend', () => {
-    if (startX - moveX > 50) {
-      handleSwipe(1); // Swipe left
-    } else if (moveX - startX > 50) {
-      handleSwipe(-1); // Swipe right
-    }
-  });
-
-  // Subtle hover effect and pointer selection on blog posts
-  let selectedPost = null;
-  blogPosts.forEach(post => {
-    const img = post.querySelector('img');
-
-    post.addEventListener('mouseenter', () => {
-      img.style.transform = 'scale(1.05)';
-      post.style.cursor = 'pointer';
-    });
-
-    post.addEventListener('mouseleave', () => {
-      img.style.transform = 'scale(1)';
-      post.style.cursor = 'default';
-    });
-
-    post.addEventListener('click', () => {
-      if (selectedPost) {
-        selectedPost.classList.remove('selected');
-      }
-      post.classList.add('selected');
-      selectedPost = post;
-      console.log('Selected post:', post.querySelector('h2').textContent);
-    });
-  });
-
-  // Text truncation
-  const truncateText = (element, maxLines) => {
-    const lineHeight = parseInt(window.getComputedStyle(element).lineHeight);
-    const maxHeight = lineHeight * maxLines;
-
-    if (element.offsetHeight > maxHeight) {
-      let content = element.textContent;
-      while (element.offsetHeight > maxHeight) {
-        content = content.slice(0, -1);
-        element.textContent = content + '...';
-      }
-    }
-  };
-
-  // Apply truncation after blog posts are dynamically inserted
-  const observer = new MutationObserver((mutations) => {
-    mutations.forEach((mutation) => {
-      if (mutation.type === 'childList') {
-        document.querySelectorAll('.blog-post-text').forEach(text => truncateText(text, 3));
-      }
-    });
-  });
-
-  observer.observe(document.getElementById('blog-posts-container'), { childList: true, subtree: true });
-
-  document.querySelectorAll('.blog-post-text').forEach(text => truncateText(text, 3));
-
-  // Initialize the first page
-  showPage(0);
-});
-
-
-// BLOG POST
-
 document.addEventListener('DOMContentLoaded', function () {
   const blogPosts = [
     {
@@ -170,6 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const postsPerPage = 3;
   let currentPage = 0;
+  let isMobile = window.innerWidth <= 768; // Define mobile breakpoint
 
   function renderBlogPosts(page) {
     const container = document.getElementById('blog-posts-container');
@@ -183,68 +73,108 @@ document.addEventListener('DOMContentLoaded', function () {
       const postElement = document.createElement('div');
       postElement.className = 'blog-post';
       postElement.innerHTML = `
-                <img src="${post.image}" alt="${post.alt}">
-                <div class="blog-post-content">
-                    <div class="blog-post-category">${post.category}</div>
-                    <div class="blog-post-title">${post.title}</div>
-                    <div class="blog-post-text">${post.text}</div>
-                    <div class="blog-post-meta">
-                        <span>${post.date}</span>
-                        <span>${post.type}</span>
-                        <a href="${post.link || '#'}" class="read-more" ${post.link ? 'target="_blank"' : ''}>Read more <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            `;
+        <img src="${post.image}" alt="${post.alt}">
+        <div class="blog-post-content">
+          <div class="blog-post-category">${post.category}</div>
+          <div class="blog-post-title">${post.title}</div>
+          <div class="blog-post-text">${post.text}</div>
+          <div class="blog-post-meta">
+            <span>${post.date}</span>
+            <span>${post.type}</span>
+            <a href="${post.link || '#'}" class="read-more" ${post.link ? 'target="_blank"' : ''}>Read more <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      `;
       container.appendChild(postElement);
     });
 
     updatePagination();
+    addCardClickListeners();
   }
 
   function updatePagination() {
     const paginationContainer = document.querySelector('.pagination');
     paginationContainer.innerHTML = '';
-
+  
     const totalPages = Math.ceil(blogPosts.length / postsPerPage);
-
+  
     for (let i = 0; i < totalPages; i++) {
       const span = document.createElement('span');
       if (i === currentPage) {
         span.classList.add('active');
       }
+      span.addEventListener('click', () => {
+        changePage(i);
+      });
       paginationContainer.appendChild(span);
     }
   }
 
+  function changePage(pageIndex) {
+    if (!isMobile) {
+      currentPage = pageIndex;
+      renderBlogPosts(currentPage);
+    }
+  }
+
   function handleSwipe(direction) {
-    currentPage += direction;
-    if (currentPage < 0) currentPage = Math.ceil(blogPosts.length / postsPerPage) - 1;
-    if (currentPage >= Math.ceil(blogPosts.length / postsPerPage)) currentPage = 0;
-    renderBlogPosts(currentPage);
+    if (isMobile) {
+      currentPage += direction;
+      if (currentPage < 0) currentPage = Math.ceil(blogPosts.length / postsPerPage) - 1;
+      if (currentPage >= Math.ceil(blogPosts.length / postsPerPage)) currentPage = 0;
+      renderBlogPosts(currentPage);
+    }
+  }
+
+  function addCardClickListeners() {
+    const blogPostCards = document.querySelectorAll('.blog-post');
+    blogPostCards.forEach(card => {
+      card.addEventListener('click', function(e) {
+        if (!isMobile && !e.target.classList.contains('read-more')) {
+          const readMoreLink = this.querySelector('.read-more');
+          readMoreLink.style.display = 'inline-block';
+          readMoreLink.style.opacity = '1';
+        }
+      });
+    });
   }
 
   const blogPostsContainer = document.getElementById('blog-posts-container');
   let startX, moveX;
+  let isSwiping = false;
 
   blogPostsContainer.addEventListener('touchstart', (e) => {
     startX = e.touches[0].clientX;
+    isSwiping = false;
   });
 
   blogPostsContainer.addEventListener('touchmove', (e) => {
     moveX = e.touches[0].clientX;
+    if (Math.abs(moveX - startX) > 10) {
+      isSwiping = true;
+    }
   });
 
   blogPostsContainer.addEventListener('touchend', () => {
-    if (startX - moveX > 50) {
-      handleSwipe(1); // Swipe left
-    } else if (moveX - startX > 50) {
-      handleSwipe(-1); // Swipe right
+    if (isMobile && isSwiping) {
+      if (startX - moveX > 50) {
+        handleSwipe(1); // Swipe left
+      } else if (moveX - startX > 50) {
+        handleSwipe(-1); // Swipe right
+      }
     }
+    isSwiping = false;
+  });
+
+  // Handle window resize to update isMobile status
+  window.addEventListener('resize', () => {
+    isMobile = window.innerWidth <= 768;
+    updatePagination();
+    addCardClickListeners(); // Re-add listeners with updated isMobile status
   });
 
   renderBlogPosts(currentPage);
 });
-
 
 
 // BLOG MICROSITE
