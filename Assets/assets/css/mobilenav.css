@@ -171,10 +171,31 @@
 }
 
 .offcanvas-header {
-    background-color: #9054d0;
-    border-top-left-radius: 10px; /* Apply to top-left corner */
+    position: relative;
+    background-image: url('../img/bg-2.avif') !important;
+    background-size: cover;
+    background-position: center;
+    border-top-left-radius: 10px;
     color: #ffffff;
-    padding-bottom: 0.1rem; /* Decreased bottom padding */
+    padding-bottom: 0.2rem;
+}
+
+.offcanvas-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(144, 84, 208, 0.6); /* Adjust opacity as needed */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* For Safari support */
+    z-index: 1;
+}
+
+.offcanvas-header > * {
+    position: relative;
+    z-index: 2;
 }
 
 .offcanvas-title {
@@ -208,7 +229,9 @@ body.offcanvas-open {
 
 .btn-close {
     filter: brightness(0) invert(1);
-    transform: translateY(-35px); /* Move further to the top */
+    transform: translateY(-10px) translateX(-10px); /* Move further to the top and to the right */
+    font-size: 1.5rem; /* Increase the size */
+    padding: 0.5rem; /* Add some padding to make the clickable area larger */
 }
 
 /* Desktop styles */

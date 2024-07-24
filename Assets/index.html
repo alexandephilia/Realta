@@ -147,8 +147,7 @@
          <div class="offcanvas offcanvas-end" tabindex="-1" id="sidebar" aria-labelledby="sidebarLabel">
             <div class="offcanvas-header">
                 <div>
-                    <h5 class="offcanvas-title" id="sidebarLabel" style="margin-left: 33px; font-size: 25px;">Realta Chakradarma</h5>
-                    <p class="offcanvas-subtitle" style="margin-left: 33px; font-size: 14px;">Search the knowledge base, product forums and documentation on the Realta Community.</p>
+                    <h5 class="offcanvas-title" id="sidebarLabel" style="margin-left: 33px; margin-bottom: 20px; font-size: 30px;">Menu</h5>
                 </div>
                 <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
@@ -161,7 +160,7 @@
                         <div id="productsSubmenu" class="collapse">
                             <ul class="product-list">
                                 <li>
-                                    <div class="product-header" data-bs-toggle="collapse" data-bs-target="#hmsSubmenu" aria-expanded="false" style="font-size: 1.1rem; font-weight: 400;">
+                                    <div class="product-header" data-bs-toggle="collapse" data-bs-target="#hmsSubmenu" aria-expanded="false" style="font-size: 1rem; font-weight: 400;">
                                         Hotel Management System <i class="fas fa-chevron-right arrow-icon"></i>
                                     </div>
                                     <div id="hmsSubmenu" class="collapse product-submenu">
@@ -193,7 +192,7 @@
                                     </div>
                                 </li>
                                 <li>
-                                    <div class="product-header" data-bs-toggle="collapse" data-bs-target="#gcsSubmenu" aria-expanded="false" style="font-size: 1.1rem; font-weight: 400;">
+                                    <div class="product-header" data-bs-toggle="collapse" data-bs-target="#gcsSubmenu" aria-expanded="false" style="font-size: 1rem; font-weight: 400;">
                                         Golf Course System <i class="fas fa-chevron-right arrow-icon"></i>
                                     </div>
                                     <div id="gcsSubmenu" class="collapse product-submenu">
@@ -221,7 +220,7 @@
                                     </div>
                                 </li>
                                 <li>
-                                    <div class="product-header" data-bs-toggle="collapse" data-bs-target="#hrSystemSubmenu" aria-expanded="false" style="font-size: 1.1rem; font-weight: 400;">
+                                    <div class="product-header" data-bs-toggle="collapse" data-bs-target="#hrSystemSubmenu" aria-expanded="false" style="font-size: 1rem; font-weight: 400;">
                                         HR System <i class="fas fa-chevron-right arrow-icon"></i>
                                     </div>
                                     <div id="hrSystemSubmenu" class="collapse product-submenu">
@@ -249,7 +248,7 @@
                                     </div>
                                 </li>
                                 <li>
-                                    <div class="product-header" data-bs-toggle="collapse" data-bs-target="#propertyTenantSubmenu" aria-expanded="false" style="font-size: 1.1rem; font-weight: 400;">
+                                    <div class="product-header" data-bs-toggle="collapse" data-bs-target="#propertyTenantSubmenu" aria-expanded="false" style="font-size: 1rem; font-weight: 400;">
                                         Property and Tenant System <i class="fas fa-chevron-right arrow-icon"></i>
                                     </div>
                                     <div id="propertyTenantSubmenu" class="collapse product-submenu">
@@ -277,7 +276,7 @@
                                     </div>
                                 </li>
                                 <li>
-                                    <div class="product-header" data-bs-toggle="collapse" data-bs-target="#itsmSubmenu" aria-expanded="false" style="font-size: 1.1rem; font-weight: 400;">
+                                    <div class="product-header" data-bs-toggle="collapse" data-bs-target="#itsmSubmenu" aria-expanded="false" style="font-size: 1rem; font-weight: 400;">
                                         ITSM, ITAM & Unified Endpoint Management <i class="fas fa-chevron-right arrow-icon"></i>
                                     </div>
                                     <div id="itsmSubmenu" class="collapse product-submenu">
@@ -305,7 +304,7 @@
                                     </div>
                                 </li>
                                 <li>
-                                    <div class="product-header" data-bs-toggle="collapse" data-bs-target="#erpSubmenu" aria-expanded="false" style="font-size: 1.1rem; font-weight: 400;">
+                                    <div class="product-header" data-bs-toggle="collapse" data-bs-target="#erpSubmenu" aria-expanded="false" style="font-size: 1rem; font-weight: 400;">
                                         ERP & EAM <i class="fas fa-chevron-right arrow-icon"></i>
                                     </div>
                                     <div id="erpSubmenu" class="collapse product-submenu">
@@ -646,11 +645,8 @@
 
     <section id="home" style="margin-bottom: 0; position: relative; overflow: hidden;">
         <div class="circle-blur"></div>
-
-        <div class="container py-5">
-
-
-            <div class="container-fluid container-lg px-3">
+        <div id="container-header" class="container py-5">
+            <div id="container-headerin" class="container-fluid container-lg px-3">
                 <!-- Content -->
                 <!-- Carousel Start -->
                 <div id="businessCarousel" class="carousel slide custom-carousel" data-bs-ride="carousel">
@@ -662,7 +658,6 @@
                             aria-label="Slide 2"></button>
                         <!-- Add more buttons for additional slides if needed -->
                     </div>
-
 
                     <div class="carousel-inner">
                         <!-- Slide 1 -->
@@ -681,6 +676,24 @@
                                     <style>
                                         /* Mobile styles */
                                         @media (max-width: 767px) {
+                                            #container-header, #container-headerin {
+                                                padding: 0 !important;
+                                                width: 100% !important;
+                                            }
+
+                                            #home {
+                                                padding-top: 25px;
+                                            }
+
+                                            .container, .row {
+                                                padding: 0 !important;
+                                            }
+
+                                            .col-lg-7.d-flex.flex-column.justify-content-center.align-items-start.text-lg-start {
+                                                padding: none !important;
+                                                width: 100%;
+                                            }
+
                                             .display-3 {
                                                 font-size: 30px !important;
                                                 line-height: 1.3;
@@ -699,14 +712,40 @@
                                                 font-size: 16px !important;
                                                 line-height: 1.4;
                                                 margin-top: 8px;
-                                                font-weight: 600 !important;
+                                                font-weight: bold !important;
                                                 word-wrap: break-word;
                                             }
 
-                                            h1,
-                                            h3 {
+                                            h1, h3 {
                                                 max-width: 100%;
                                                 overflow-wrap: break-word;
+                                            }
+
+                                            .btn-custom.mobile-responsive {
+                                                font-size: 14px !important;
+                                                padding: 3px 10px !important;
+                                                margin-top: -5px;
+                                            }
+                                        }
+
+                                        /* Tablet styles */
+                                        @media (max-width: 480px) {
+                                            .btn-custom.mobile-responsive {
+                                                font-size: 13px !important;
+                                                padding: 4px 4px !important;
+                                                display: inline-flex !important;
+                                                align-items: center !important;
+                                                justify-content: center !important;
+                                                min-width: 100px !important;
+                                                text-align: center !important;
+                                            }
+                                        }
+
+                                        /* Small mobile styles */
+                                        @media (max-width: 320px) {
+                                            .btn-custom.mobile-responsive {
+                                                font-size: 12px !important;
+                                                padding: 3px 5px !important;
                                             }
                                         }
 
@@ -725,34 +764,6 @@
 
                                             .lead {
                                                 margin-top: 15px;
-                                            }
-                                        }
-                                    </style>
-                                    <style>
-                                       @media (max-width: 767px) {
-                                            .btn-custom.mobile-responsive {
-                                                font-size: 14px !important;
-                                                padding: 3px 10px !important;
-                                                margin-top: -5px; /* Adjust this value as needed */
-                                            }
-                                        }
-
-                                        @media (max-width: 480px) {
-                                            .btn-custom.mobile-responsive {
-                                                font-size: 13px !important;
-                                                padding: 4px 4px !important;
-                                                display: inline-flex !important;
-                                                align-items: center !important;
-                                                justify-content: center !important;
-                                                min-width: 100px !important;
-                                                text-align: center !important;
-                                            }
-                                        }
-
-                                        @media (max-width: 320px) {
-                                            .btn-custom.mobile-responsive {
-                                                font-size: 12px !important;
-                                                padding: 3px 5px !important;
                                             }
                                         }
                                     </style>
