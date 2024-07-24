@@ -189,7 +189,7 @@
 }
 
 .offcanvas-backdrop.show {
-    pointer-events: auto; /* Enable pointer events when the backdrop is shown */
+    pointer-events: none; /* Enable pointer events when the backdrop is shown */
 }
 
 /* Add these new styles */
@@ -199,6 +199,7 @@ body.offcanvas-open {
     width: 100%;
     height: 100%;
 }
+
 .btn-close {
     filter: brightness(0) invert(1);
 }
@@ -276,11 +277,15 @@ body.offcanvas-open {
     color: #9054d0;
 }
 
-
+.modules-heading {
+    font-size: 0.8rem !important; /* Adjust this value as needed */
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
 
 /* Update these styles in your existing CSS */
 .collapse {
-    transition: all 0.01s ease-out;
+    transition: all 0.1s ease-out;
 }
 
 .arrow-icon {
