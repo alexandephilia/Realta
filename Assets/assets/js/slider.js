@@ -22,10 +22,32 @@ const cardContents = {
     <div class="col-md-6">
         <div class="card-body d-flex align-items-center justify-content-center h-100">
             <div class="video-industry">
-                <iframe class="rounded-video" src="https://www.youtube.com/embed/sjL6Gl6ZIqs" allowfullscreen style="border-radius: 10px;"></iframe>
+                <iframe class="rounded-video" src="https://www.youtube.com/embed/sjL6Gl6ZIqs" allowfullscreen style="border-radius: 10px;" allow="fullscreen"></iframe>
             </div>
         </div>
     </div>
+    <style>
+        .video-industry {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+        }
+        .rounded-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        @media (max-width: 768px) {
+            .video-industry {
+                padding-bottom: 75%; /* Increase height on mobile */
+            }
+            .card-body {
+                padding: 1rem; /* Reduce padding on mobile */
+            }
+        }
+    </style>
 </div>
     `,
     manufacturing: `
