@@ -1,21 +1,53 @@
 document.addEventListener('DOMContentLoaded', () => {
   const blogPosts = document.querySelectorAll('.blog-post');
   const paginationDots = document.querySelectorAll('.pagination span');
+  const blogPostsContainer = document.getElementById('blog-posts-container');
+  let startX, moveX;
+  let currentPage = 0;
 
-  // Pagination functionality
-  paginationDots.forEach((dot, index) => {
-    dot.addEventListener('click', () => {
-      paginationDots.forEach(d => d.classList.remove('active'));
-      dot.classList.add('active');
-      console.log(`Switched to page ${index + 1}`);
+  function showPage(pageIndex) {
+    paginationDots.forEach(d => d.classList.remove('active'));
+    paginationDots[pageIndex].classList.add('active');
+    console.log(`Switched to page ${pageIndex + 1}`);
 
-      // Simulate content change with animation
-      blogPosts.forEach(post => {
-        post.style.animation = 'none';
-        post.offsetHeight; // Trigger reflow
-        post.style.animation = null;
-      });
+    // Simulate content change with animation
+    blogPosts.forEach(post => {
+      post.style.animation = 'none';
+      post.offsetHeight; // Trigger reflow
+      post.style.animation = null;
     });
+
+    // Update blog posts display
+    const postsPerPage = 3;
+    const start = pageIndex * postsPerPage;
+    const end = start + postsPerPage;
+    blogPosts.forEach((post, index) => {
+      post.style.display = (index >= start && index < end) ? 'block' : 'none';
+    });
+  }
+
+  function handleSwipe(direction) {
+    currentPage += direction;
+    if (currentPage < 0) currentPage = paginationDots.length - 1;
+    if (currentPage >= paginationDots.length) currentPage = 0;
+    showPage(currentPage);
+  }
+
+  // Touch events for swiping
+  blogPostsContainer.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].clientX;
+  });
+
+  blogPostsContainer.addEventListener('touchmove', (e) => {
+    moveX = e.touches[0].clientX;
+  });
+
+  blogPostsContainer.addEventListener('touchend', () => {
+    if (startX - moveX > 50) {
+      handleSwipe(1); // Swipe left
+    } else if (moveX - startX > 50) {
+      handleSwipe(-1); // Swipe right
+    }
   });
 
   // Subtle hover effect and pointer selection on blog posts
@@ -69,6 +101,9 @@ document.addEventListener('DOMContentLoaded', () => {
   observer.observe(document.getElementById('blog-posts-container'), { childList: true, subtree: true });
 
   document.querySelectorAll('.blog-post-text').forEach(text => truncateText(text, 3));
+
+  // Initialize the first page
+  showPage(0);
 });
 
 
@@ -134,13 +169,13 @@ document.addEventListener('DOMContentLoaded', function () {
   ];
 
   const postsPerPage = 3;
-  let currentPage = 1;
+  let currentPage = 0;
 
   function renderBlogPosts(page) {
     const container = document.getElementById('blog-posts-container');
     container.innerHTML = '';
 
-    const start = (page - 1) * postsPerPage;
+    const start = page * postsPerPage;
     const end = start + postsPerPage;
     const postsToShow = blogPosts.slice(start, end);
 
@@ -172,18 +207,40 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const totalPages = Math.ceil(blogPosts.length / postsPerPage);
 
-    for (let i = 1; i <= totalPages; i++) {
+    for (let i = 0; i < totalPages; i++) {
       const span = document.createElement('span');
       if (i === currentPage) {
         span.classList.add('active');
       }
-      span.addEventListener('click', () => {
-        currentPage = i;
-        renderBlogPosts(currentPage);
-      });
       paginationContainer.appendChild(span);
     }
   }
+
+  function handleSwipe(direction) {
+    currentPage += direction;
+    if (currentPage < 0) currentPage = Math.ceil(blogPosts.length / postsPerPage) - 1;
+    if (currentPage >= Math.ceil(blogPosts.length / postsPerPage)) currentPage = 0;
+    renderBlogPosts(currentPage);
+  }
+
+  const blogPostsContainer = document.getElementById('blog-posts-container');
+  let startX, moveX;
+
+  blogPostsContainer.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].clientX;
+  });
+
+  blogPostsContainer.addEventListener('touchmove', (e) => {
+    moveX = e.touches[0].clientX;
+  });
+
+  blogPostsContainer.addEventListener('touchend', () => {
+    if (startX - moveX > 50) {
+      handleSwipe(1); // Swipe left
+    } else if (moveX - startX > 50) {
+      handleSwipe(-1); // Swipe right
+    }
+  });
 
   renderBlogPosts(currentPage);
 });

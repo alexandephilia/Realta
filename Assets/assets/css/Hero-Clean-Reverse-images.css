@@ -3040,9 +3040,9 @@ body.dark-mode .btn-schedule:hover {
   animation: rotateQuote 2s ease-in-out infinite alternate-reverse;
 }
 
-.unique-testimonial-text:hover {
+/* .unique-testimonial-text:hover {
   transform: translateY(-5px);
-}
+} */
 
 .unique-testimonial-text:hover::before,
 .unique-testimonial-text:hover::after {
