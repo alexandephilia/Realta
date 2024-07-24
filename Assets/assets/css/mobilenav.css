@@ -154,14 +154,13 @@
     width: 100%; /* Change from 320px to 100% */
     border-left: none; /* Remove the left border */
     border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
 }
 
 .offcanvas-body {
     padding: 1.5rem;
 
 }
-
-
 
 .offcanvas-header {
     background-color: #9054d0;
