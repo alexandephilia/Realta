@@ -35,3 +35,15 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+
+document.addEventListener('DOMContentLoaded', (event) => {
+    const offcanvasElement = document.querySelector('.offcanvas');
+    
+    offcanvasElement.addEventListener('show.bs.offcanvas', function () {
+        document.body.classList.add('offcanvas-open');
+    });
+
+    offcanvasElement.addEventListener('hide.bs.offcanvas', function () {
+        document.body.classList.remove('offcanvas-open');
+    });
+});

@@ -153,8 +153,7 @@
 .offcanvas {
     width: 100%; /* Change from 320px to 100% */
     border-left: none; /* Remove the left border */
-    border-radius: 15px;
-
+    border-bottom-left-radius: 15px;
 }
 
 .offcanvas-body {
@@ -179,16 +178,21 @@
     background-color: rgba(135, 135, 135, 0.5);
 }
 
-
 .offcanvas-backdrop {
     pointer-events: none; /* Disable pointer events by default */
-    
 }
 
 .offcanvas-backdrop.show {
-    pointer-events: none; /* Enable pointer events when the backdrop is shown */
+    pointer-events: auto; /* Enable pointer events when the backdrop is shown */
 }
 
+/* Add these new styles */
+body.offcanvas-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
 .btn-close {
     filter: brightness(0) invert(1);
 }
