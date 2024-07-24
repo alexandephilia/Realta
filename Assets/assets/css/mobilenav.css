@@ -66,7 +66,7 @@
     top: 50%;
     transform: translateY(-50%);
     transition: transform 0.3s ease;
-    font-size: 1.5rem; /* Adjusted size for smaller chevron */
+    font-size: 1.1rem; /* Adjusted size for smaller chevron */
 }
 
 .product-header[aria-expanded="true"] .arrow-icon {
