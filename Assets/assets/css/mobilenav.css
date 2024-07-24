@@ -79,6 +79,7 @@
     max-height: 0;
     opacity: 0;
     overflow: hidden;
+    margin-left: 20px;
 }
 
 .product-submenu.show {
