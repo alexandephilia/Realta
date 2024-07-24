@@ -3074,9 +3074,9 @@ body.dark-mode .unique-testimonial-text::after {
   color: rgba(138, 75, 204, 0.6);
 }
 
-/* body.dark-mode .unique-testimonial-text:hover {
+body.dark-mode .unique-testimonial-text:hover {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-} */
+}
 .play-button-pulse {
   width: 40px;
   height: 40px;
