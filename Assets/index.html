@@ -1863,6 +1863,38 @@
             </div>
         </section>
 
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const slider = document.querySelector('.unique-testimonial-slider');
+                let startX, moveX;
+                let activeIndex = 0;
+
+                slider.addEventListener('touchstart', touchStart, {passive: true});
+                slider.addEventListener('touchmove', touchMove, {passive: true});
+                slider.addEventListener('touchend', touchEnd);
+
+                function touchStart(e) {
+                    startX = e.touches[0].clientX;
+                }
+
+                function touchMove(e) {
+                    moveX = e.touches[0].clientX;
+                }
+
+                function touchEnd() {
+                    if (startX - moveX > 50) {
+                        // Swipe left
+                        activeIndex = Math.min(activeIndex + 1, 2);
+                    } else if (moveX - startX > 50) {
+                        // Swipe right
+                        activeIndex = Math.max(activeIndex - 1, 0);
+                    }
+                    document.getElementById(`unique-testimonial-item-${activeIndex + 1}`).checked = true;
+                }
+            });
+        </script>
+
+       
 
 
         <!-- BLOG -->

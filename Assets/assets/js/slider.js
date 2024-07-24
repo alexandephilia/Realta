@@ -332,145 +332,145 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // TESTIMONIAL
 
-document.addEventListener('DOMContentLoaded', function() {
-    const testimonialCarousel = document.querySelector('.testimonial-carousel');
-    const indicatorsContainer = document.querySelector('.indicators');
-    let currentIndex = 0;
-    let intervalId;
+// document.addEventListener('DOMContentLoaded', function() {
+//     const testimonialCarousel = document.querySelector('.testimonial-carousel');
+//     const indicatorsContainer = document.querySelector('.indicators');
+//     let currentIndex = 0;
+//     let intervalId;
   
-    // Testimonial data
-    const testimonials = [
-        {
-            name: "Raymond Galario",
-            location: "Sydney, Australia",
-            image: "assets/img/team/avatar4.jpg",
-            quote: "Exceptional service! The team went above and beyond to meet our needs. Highly recommended for anyone looking for quality and professionalism.",
-            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-        },
-        {
-            name: "Jane Doe",
-            location: "New York, USA",
-            image: "assets/img/team/avatar5.jpg",
-            quote: "I'm thoroughly impressed with the level of expertise and dedication. The solutions provided have significantly improved our business operations.",
-            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-        },
-        {
-            name: "John Smith",
-            location: "London, UK",
-            image: "assets/img/team/avatar2.jpg",
-            quote: "Working with this team has been a game-changer for our company. Their innovative approach and attention to detail are unmatched.",
-            videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-        }
-    ];
+//     // Testimonial data
+//     const testimonials = [
+//         {
+//             name: "Raymond Galario",
+//             location: "Sydney, Australia",
+//             image: "assets/img/team/avatar4.jpg",
+//             quote: "Exceptional service! The team went above and beyond to meet our needs. Highly recommended for anyone looking for quality and professionalism.",
+//             videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+//         },
+//         {
+//             name: "Jane Doe",
+//             location: "New York, USA",
+//             image: "assets/img/team/avatar5.jpg",
+//             quote: "I'm thoroughly impressed with the level of expertise and dedication. The solutions provided have significantly improved our business operations.",
+//             videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+//         },
+//         {
+//             name: "John Smith",
+//             location: "London, UK",
+//             image: "assets/img/team/avatar2.jpg",
+//             quote: "Working with this team has been a game-changer for our company. Their innovative approach and attention to detail are unmatched.",
+//             videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+//         }
+//     ];
     
-    // Create testimonial elements
-    // Create testimonial elements
-    testimonials.forEach((testimonial, index) => {
-        const testimonialElement = document.createElement('div');
-        testimonialElement.classList.add('testimonial');
-        if (index === 0) testimonialElement.classList.add('active');
+//     // Create testimonial elements
+//     // Create testimonial elements
+//     testimonials.forEach((testimonial, index) => {
+//         const testimonialElement = document.createElement('div');
+//         testimonialElement.classList.add('testimonial');
+//         if (index === 0) testimonialElement.classList.add('active');
     
-        testimonialElement.innerHTML = `
-            <img src="${testimonial.image}" alt="${testimonial.name}" class="client-image">
-            <h3>${testimonial.name}</h3>
-            <p class="location">${testimonial.location}</p>
-            <blockquote class="testimonial-quote">
-                <span class="quote-mark">&ldquo;</span>
-                ${testimonial.quote}
-                <span class="quote-mark">&rdquo;</span>
-            </blockquote>
-            <p class="video-link">
-                <a href="#" class="open-video" data-video-url="${testimonial.videoUrl}">
-                    <i class="fas fa-play-circle"></i> Watch Video Testimonial
-                </a>
-            </p>
-        `;
-        testimonialCarousel.appendChild(testimonialElement);
+//         testimonialElement.innerHTML = `
+//             <img src="${testimonial.image}" alt="${testimonial.name}" class="client-image">
+//             <h3>${testimonial.name}</h3>
+//             <p class="location">${testimonial.location}</p>
+//             <blockquote class="testimonial-quote">
+//                 <span class="quote-mark">&ldquo;</span>
+//                 ${testimonial.quote}
+//                 <span class="quote-mark">&rdquo;</span>
+//             </blockquote>
+//             <p class="video-link">
+//                 <a href="#" class="open-video" data-video-url="${testimonial.videoUrl}">
+//                     <i class="fas fa-play-circle"></i> Watch Video Testimonial
+//                 </a>
+//             </p>
+//         `;
+//         testimonialCarousel.appendChild(testimonialElement);
 
-        // Create indicator
-        const indicator = document.createElement('div');
-        indicator.classList.add('indicator');
-        if (index === 0) indicator.classList.add('active');
-        indicator.addEventListener('click', () => goToSlide(index));
-        indicatorsContainer.appendChild(indicator);
-    });
+//         // Create indicator
+//         const indicator = document.createElement('div');
+//         indicator.classList.add('indicator');
+//         if (index === 0) indicator.classList.add('active');
+//         indicator.addEventListener('click', () => goToSlide(index));
+//         indicatorsContainer.appendChild(indicator);
+//     });
 
-    const testimonialElements = document.querySelectorAll('.testimonial');
-    const indicators = document.querySelectorAll('.indicator');
+//     const testimonialElements = document.querySelectorAll('.testimonial');
+//     const indicators = document.querySelectorAll('.indicator');
 
 
     
-    function goToSlide(index) {
-        testimonialElements[currentIndex].classList.remove('active');
-        indicators[currentIndex].classList.remove('active');
-        currentIndex = index;
-        testimonialElements[currentIndex].classList.add('active');
-        indicators[currentIndex].classList.add('active');
+//     function goToSlide(index) {
+//         testimonialElements[currentIndex].classList.remove('active');
+//         indicators[currentIndex].classList.remove('active');
+//         currentIndex = index;
+//         testimonialElements[currentIndex].classList.add('active');
+//         indicators[currentIndex].classList.add('active');
 
-        // Animate indicator width
-        indicators.forEach((indicator, idx) => {
-            if (idx === currentIndex) {
-                indicator.style.width = '50px';
-            } else {
-                indicator.style.width = '30px';
-            }
-        });
-    }
+//         // Animate indicator width
+//         indicators.forEach((indicator, idx) => {
+//             if (idx === currentIndex) {
+//                 indicator.style.width = '50px';
+//             } else {
+//                 indicator.style.width = '30px';
+//             }
+//         });
+//     }
 
-    function nextSlide() {
-        let nextIndex = (currentIndex + 1) % testimonialElements.length;
-        goToSlide(nextIndex);
-    }
+//     function nextSlide() {
+//         let nextIndex = (currentIndex + 1) % testimonialElements.length;
+//         goToSlide(nextIndex);
+//     }
 
-    function startAutoSlide() {
-        intervalId = setInterval(nextSlide, 10000); // 10 seconds
-    }
+//     function startAutoSlide() {
+//         intervalId = setInterval(nextSlide, 10000); // 10 seconds
+//     }
 
-    function stopAutoSlide() {
-        clearInterval(intervalId);
-    }
+//     function stopAutoSlide() {
+//         clearInterval(intervalId);
+//     }
 
-    // Initialize
-    startAutoSlide();
+//     // Initialize
+//     startAutoSlide();
 
-    // Pause auto-slide on hover
-    testimonialCarousel.addEventListener('mouseenter', stopAutoSlide);
-    testimonialCarousel.addEventListener('mouseleave', startAutoSlide);
+//     // Pause auto-slide on hover
+//     testimonialCarousel.addEventListener('mouseenter', stopAutoSlide);
+//     testimonialCarousel.addEventListener('mouseleave', startAutoSlide);
 
  
  
 
-    // Video popup functionality
-    document.addEventListener('click', function(e) {
-        if (e.target && e.target.closest('.open-video')) {
-            e.preventDefault();
-            const videoUrl = e.target.closest('.open-video').getAttribute('data-video-url');
-            openVideoPopup(videoUrl);
-        }
-    });
+//     // Video popup functionality
+//     document.addEventListener('click', function(e) {
+//         if (e.target && e.target.closest('.open-video')) {
+//             e.preventDefault();
+//             const videoUrl = e.target.closest('.open-video').getAttribute('data-video-url');
+//             openVideoPopup(videoUrl);
+//         }
+//     });
 
-    function openVideoPopup(videoUrl) {
-        const popup = document.createElement('div');
-        popup.className = 'video-popup';
-        popup.innerHTML = `
-            <div class="video-popup-content">
-                <button class="close-popup">&times;</button>
-                <iframe src="${videoUrl}" frameborder="0" allowfullscreen></iframe>
-            </div>
-        `;
-        document.body.appendChild(popup);
+//     function openVideoPopup(videoUrl) {
+//         const popup = document.createElement('div');
+//         popup.className = 'video-popup';
+//         popup.innerHTML = `
+//             <div class="video-popup-content">
+//                 <button class="close-popup">&times;</button>
+//                 <iframe src="${videoUrl}" frameborder="0" allowfullscreen></iframe>
+//             </div>
+//         `;
+//         document.body.appendChild(popup);
 
-        popup.querySelector('.close-popup').addEventListener('click', () => {
-            document.body.removeChild(popup);
-        });
+//         popup.querySelector('.close-popup').addEventListener('click', () => {
+//             document.body.removeChild(popup);
+//         });
 
-        popup.addEventListener('click', (e) => {
-            if (e.target === popup) {
-                document.body.removeChild(popup);
-            }
-        });
-    }
-});
+//         popup.addEventListener('click', (e) => {
+//             if (e.target === popup) {
+//                 document.body.removeChild(popup);
+//             }
+//         });
+//     }
+// });
   
 // FLOATING ORBS
 document.addEventListener('DOMContentLoaded', function() {
