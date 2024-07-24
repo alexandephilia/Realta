@@ -1782,22 +1782,29 @@
         }
 
         @media (max-width: 768px) {
-           
-        
+            .video-container {
+                width: 100%;
+                padding: 10px;
+                margin: 0 auto;
+            }
 
-.video-container {
-        width: 95%;
-        padding: 10px;
-    }
+            .video-wrapper {
+                padding-top: 75%; /* 4:3 aspect ratio for better mobile viewing */
+            }
 
-    .close-video {
-        top: -10px !important;
-        right: -10px !important;
-        width: 25px !important;
-        height: 25px !important;
-        font-size: 18px !important;
-    }
+            .close-video {
+                top: 5px !important;
+                right: 5px !important;
+                width: 30px !important;
+                height: 30px !important;
+                font-size: 20px !important;
+            }
+
+            .play-icon {
+                transform: scale(0.8);
+            }
         }
+
         </style>
 
 
