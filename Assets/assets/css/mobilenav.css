@@ -172,7 +172,8 @@
 .offcanvas-header {
     background-color: #9054d0;
     border-top-left-radius: 10px; /* Apply to top-left corner */
-    color: #ffffff; 
+    color: #ffffff;
+    padding-bottom: 0.1rem; /* Decreased bottom padding */
 }
 
 .offcanvas-title {
@@ -206,6 +207,7 @@ body.offcanvas-open {
 
 .btn-close {
     filter: brightness(0) invert(1);
+    transform: translateY(-35px); /* Move further to the top */
 }
 
 /* Desktop styles */
