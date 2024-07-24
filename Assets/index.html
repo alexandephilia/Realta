@@ -1867,16 +1867,36 @@
                         }
                     }
 
-                    @media (max-width: 576px) {
-                        .testimonial-heading {
-                            font-size: 2rem;
-                        }
+        @media (max-width: 768px) {
+        .unique-testimonial-card {
+            pointer-events: none;
+            cursor: default;
+        }
 
-                        .testimonial-subheading {
-                            font-size: 0.9rem;
-                        }
-                    }
-                </style>
+        .unique-testimonial-card:hover {
+            transform: none;
+            box-shadow: none;
+        }
+
+        .unique-testimonial-slider input[type="radio"] {
+            display: none;
+        }
+
+        .unique-testimonial-slider label {
+            pointer-events: none;
+        }
+
+        .unique-testimonial-cards-container {
+            transform: none !important;
+            transition: none !important;
+        }
+
+        .play-icon {
+            pointer-events: auto !important;
+            cursor: pointer !important;
+        }
+        }
+</style>
                 <h1 class="testimonial-heading">Testimonial</h1>
                 <h3 class="testimonial-subheading">What Our Customers Say</h3>
                 <svg width="100" height="20" viewBox="0 0 100 20" class="d-block mx-auto mb-5">
@@ -1963,9 +1983,11 @@
             document.addEventListener('DOMContentLoaded', function () {
                 const slider = document.querySelector('.unique-testimonial-slider');
                 const testimonials = document.querySelectorAll('.unique-testimonial-card');
+                const playButtons = document.querySelectorAll('.play-icon');
                 let startX, moveX;
                 let activeIndex = 0;
                 const testimonialCount = testimonials.length;
+                let isMobile = window.innerWidth <= 768; // Adjust this threshold as needed
 
                 function changeTestimonial(index) {
                     activeIndex = (index + testimonialCount) % testimonialCount;
@@ -1976,49 +1998,50 @@
                     changeTestimonial(activeIndex + direction);
                 }
 
-                slider.addEventListener('touchstart', (e) => {
-                    startX = e.touches[0].clientX;
-                }, { passive: true });
-
-                slider.addEventListener('touchmove', (e) => {
-                    moveX = e.touches[0].clientX;
-                }, { passive: true });
-
-                slider.addEventListener('touchend', () => {
-                    const swipeThreshold = slider.offsetWidth * 0.15;
-                    if (startX - moveX > swipeThreshold) {
-                        handleSwipe(1); // Swipe left
-                    } else if (moveX - startX > swipeThreshold) {
-                        handleSwipe(-1); // Swipe right
+                function handleInteraction(e) {
+                    if (isMobile && !e.target.closest('.play-icon')) {
+                        // Prevent default behavior on mobile except for play button
+                        e.preventDefault();
                     }
-                });
 
-                // Mouse drag events for desktop
-                let isDragging = false;
-                slider.addEventListener('mousedown', (e) => {
-                    isDragging = true;
-                    startX = e.clientX;
-                });
-
-                slider.addEventListener('mousemove', (e) => {
-                    if (!isDragging) return;
-                    moveX = e.clientX;
-                });
-
-                slider.addEventListener('mouseup', () => {
-                    if (!isDragging) return;
-                    isDragging = false;
-                    const dragThreshold = slider.offsetWidth * 0.15;
-                    if (startX - moveX > dragThreshold) {
-                        handleSwipe(1); // Drag left
-                    } else if (moveX - startX > dragThreshold) {
-                        handleSwipe(-1); // Drag right
+                    if (e.type.startsWith('touch')) {
+                        startX = e.touches[0].clientX;
+                    } else if (e.type === 'mousedown' && !isMobile) {
+                        startX = e.clientX;
                     }
-                });
+                }
 
-                slider.addEventListener('mouseleave', () => {
-                    isDragging = false;
-                });
+                function handleMove(e) {
+                    if (isMobile || (e.type === 'mousemove' && e.buttons === 1)) {
+                        moveX = e.type.startsWith('touch') ? e.touches[0].clientX : e.clientX;
+                    }
+                }
+
+                function handleEnd() {
+                    if (startX !== undefined && moveX !== undefined) {
+                        const swipeThreshold = slider.offsetWidth * 0.15;
+                        if (startX - moveX > swipeThreshold) {
+                            handleSwipe(1); // Swipe left
+                        } else if (moveX - startX > swipeThreshold) {
+                            handleSwipe(-1); // Swipe right
+                        }
+                    }
+                    startX = undefined;
+                    moveX = undefined;
+                }
+
+                // Touch events (primarily for mobile)
+                slider.addEventListener('touchstart', handleInteraction, { passive: false });
+                slider.addEventListener('touchmove', handleMove, { passive: true });
+                slider.addEventListener('touchend', handleEnd);
+
+                // Mouse events (primarily for desktop)
+                if (!isMobile) {
+                    slider.addEventListener('mousedown', handleInteraction);
+                    slider.addEventListener('mousemove', handleMove);
+                    slider.addEventListener('mouseup', handleEnd);
+                    slider.addEventListener('mouseleave', handleEnd);
+                }
 
                 // Keyboard navigation
                 document.addEventListener('keydown', (e) => {
@@ -2036,13 +2059,36 @@
 
                 // Resize event for responsiveness
                 window.addEventListener('resize', () => {
-                    // Recalculate swipe threshold based on new slider width
-                    const swipeThreshold = slider.offsetWidth * 0.15;
+                    isMobile = window.innerWidth <= 768; // Update isMobile status on resize
+                    updateMobileStyles();
                 });
+
+                function updateMobileStyles() {
+                    if (isMobile) {
+                        testimonials.forEach(card => {
+                            card.style.pointerEvents = 'none';
+                            card.style.cursor = 'default';
+                        });
+                        playButtons.forEach(button => {
+                            button.style.pointerEvents = 'auto';
+                            button.style.cursor = 'pointer';
+                        });
+                    } else {
+                        testimonials.forEach(card => {
+                            card.style.pointerEvents = '';
+                            card.style.cursor = '';
+                        });
+                        playButtons.forEach(button => {
+                            button.style.pointerEvents = '';
+                            button.style.cursor = '';
+                        });
+                    }
+                }
+
+                updateMobileStyles();
             });
         </script>
 
-       
 
 
         <!-- BLOG -->
