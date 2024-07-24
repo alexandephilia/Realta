@@ -39,8 +39,6 @@
 
 
 
-
-
 .product-header {
     display: flex;
     justify-content: space-between;
@@ -77,6 +75,15 @@
 .product-submenu {
     padding: 15px;
     background-color: var(--background-color);
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+}
+
+.product-submenu.show {
+    max-height: 1000px; /* Adjust this value based on your content */
+    opacity: 1;
 }
 
 .product-submenu p {
@@ -260,7 +267,7 @@ body.offcanvas-open {
 .submenu-list a {
     color: var(--text-color);
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color 0.1s ease;
     display: block;
     padding: 5px 0;
 }
@@ -273,7 +280,7 @@ body.offcanvas-open {
 
 /* Update these styles in your existing CSS */
 .collapse {
-    transition: all 0.05s ease-out; /* Further reduced */
+    transition: all 0.01s ease-out;
 }
 
 .arrow-icon {
