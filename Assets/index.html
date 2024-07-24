@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="assets/css/navbar.css">
     <link rel="stylesheet" href="assets/css/blog.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
-        <link rel="stylesheet" href="assets/css/mobilenav.css">
+    <link rel="stylesheet" href="assets/css/mobilenav.css">
 
 
 
@@ -114,12 +114,12 @@
     body {
         padding-top: 80px;
     }
-  
 </style>
+
 <body>
     <header">
-    <nav class="navbar navbar-expand-lg sticky-top navbar-shrink navbar-light" id="mainNav">
-        <? class="container-fluid container-lg px-3">
+        <nav class="navbar navbar-expand-lg sticky-top navbar-shrink navbar-light" id="mainNav">
+            <? class="container-fluid container-lg px-3">
             <a class="navbar-logo d-flex align-items-center" href="/">
                 <img src="assets/img/realta.png" alt="Realta Logo" style="width: 150px; height: 50%; padding: 5px;">
             </a>
@@ -132,7 +132,7 @@
                 <!-- Language switch dropdown -->
                 <div class="custom-dropdown">
                     <button id="languageSwitch" class="btn-custom download-btn ms-2" type="button"
-                        style="border: none; min-width: fit-content; margin-right: 1rem;">
+                        style="border: none; min-width: fit-content; margin-right: 1.6rem;">
                         <i class="fas fa-globe"></i>
                     </button>
                     <ul class="custom-dropdown-menu">
@@ -141,7 +141,7 @@
                     </ul>
                 </div>
                 <div class="nav-drawer" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="sidebar">
-                    <i class="fas fa-bars" style="font-size: 1.5rem;"></i>
+                    <i class="fas fa-bars" style="font-size: 1.8rem;"></i>
                 </div>
             </div>
          <!-- Mobile responsive navigation menu -->
@@ -374,9 +374,8 @@
                     </div>
                     <div class="sidebar-item">
                         <h2 class="product-header">
-                            <a href="blog.html" style="text-decoration: none; color: inherit;">Blog</a>
-                        </h2>
-                        
+                            <a href="#" onclick="navigateWithLoading('blog.html'); return false;" style="text-decoration: none; color: inherit;">Blog</a>
+                        </h2>                        
                     </div>
                 </div>
                 <div class="get-started-container">
@@ -1556,6 +1555,10 @@
                         object-fit: contain;
                     }
 
+                    /* body.dark-mode .solution-card-image img {
+                        filter: brightness(0) invert(1);
+                    } */
+
                     .solution-card-content {
                         padding: 2rem;
                         flex: 1;
@@ -1600,11 +1603,14 @@
                         }
                     }
                 </style>
+
+
+
                 <section class="solution-section">
                     <style>
                         @media (max-width: 768px) {
                             .solution-section {
-                                padding: 0 !important;
+                                padding: none !important;
                             }
 
                           
@@ -1612,6 +1618,14 @@
                     </style>
                     <div class="container">
                         <h1 class="solution-title">Solution for <span class="gradient-text">Each Business</span></h1>
+                        <style>
+                            @media (max-width: 768px) {
+                                .solution-title {
+                                    display: flex;
+                                    flex-direction: column;
+                                }
+                            }
+                        </style>
                         <h3 class="solution-subtitle">Real Partnership To Deliver A Reliable Solution.</h3>
 
                         <div class="solution-card-container">
@@ -1864,7 +1878,7 @@
         </section>
 
         <script>
-            document.addEventListener('DOMContentLoaded', function() {
+            document.addEventListener('DOMContentLoaded', function () {
                 const slider = document.querySelector('.unique-testimonial-slider');
                 const testimonials = document.querySelectorAll('.unique-testimonial-card');
                 let startX, moveX;
@@ -1882,11 +1896,11 @@
 
                 slider.addEventListener('touchstart', (e) => {
                     startX = e.touches[0].clientX;
-                }, {passive: true});
+                }, { passive: true });
 
                 slider.addEventListener('touchmove', (e) => {
                     moveX = e.touches[0].clientX;
-                }, {passive: true});
+                }, { passive: true });
 
                 slider.addEventListener('touchend', () => {
                     const swipeThreshold = slider.offsetWidth * 0.15;
