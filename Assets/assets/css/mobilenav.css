@@ -34,7 +34,7 @@
 }
 
 .offcanvas.offcanvas-end{
-    width: 80%;
+    width: 100%;
 }
 
 
@@ -172,7 +172,7 @@
 .offcanvas-header {
     background-color: #9054d0;
     border-top-left-radius: 10px; /* Apply to top-left corner */
-    color: #ffffff;    color: #ffffff;
+    color: #ffffff; 
 }
 
 .offcanvas-title {
@@ -180,16 +180,20 @@
 }
 
 .offcanvas-backdrop {
-    backdrop-filter: blur(10px);
-    background-color: rgba(135, 135, 135, 0.5);
+    display: none;
 }
 
-.offcanvas-backdrop {
-    pointer-events: none; /* Disable pointer events by default */
-}
+@media (max-width: 991.98px) {
+    .offcanvas-backdrop {
+        display: block;
+        backdrop-filter: blur(10px);
+        background-color: rgba(135, 135, 135, 0.5);
+        pointer-events: none;
+    }
 
-.offcanvas-backdrop.show {
-    pointer-events: none; /* Enable pointer events when the backdrop is shown */
+    .offcanvas-backdrop.show {
+        pointer-events: auto;
+    }
 }
 
 /* Add these new styles */
