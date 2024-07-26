@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
   const blogPosts = [
     {
+      id: 1,
       image: "assets/img/news/news2.jpg",
       alt: "Child Development",
       category: "Tech",
@@ -11,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
       link: ""
     },
     {
+      id: 2,
       image: "assets/img/news/news1.jpg",
       alt: "Job Interview",
       category: "Tech",
@@ -20,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
       type: "News",
     },
     {
+      id: 3,
       image: "assets/img/news/news3.jpg",
       alt: "Tech",
       category: "Tech",
@@ -29,6 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
       type: "News"
     },
     {
+      id: 4,
       image: "assets/img/news/news5.jpg",
       alt: "AI Ethics",
       category: "Breaking News",
@@ -38,6 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
       type: "Opinion"
     },
     {
+      id: 5,
       image: "assets/img/news/news4.jpg",
       alt: "Quantum Computing",
       category: "Computer",
@@ -47,6 +52,7 @@ document.addEventListener('DOMContentLoaded', function () {
       type: "News"
     },
     {
+      id: 6,
       image: "assets/img/news/news6.jpg",
       alt: "Cybersecurity",
       category: "Cybersecurity",
@@ -86,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function () {
               <span class="me-3">${post.date}</span>
               <span>${post.type}</span>
             </div>
-            <a href="${post.link || '#'}" class="read-more" ${post.link ? 'target="_blank"' : ''}>Read more <i class="fas fa-arrow-right"></i></a>
+            <a href="article.html?id=${post.id}" class="read-more">Read more</a>
           </div>
         </div>
       `;
@@ -186,6 +192,7 @@ document.addEventListener('DOMContentLoaded', function () {
 // BLOG MICROSITE
 const blogPosts = [
   {
+    id: 1,
     title: "Microsoft Drops From OpenAI's Boards",
     image: "assets/img/news/news2.jpg",
     imageAlt: "assets/img/news/computer.fcd1bd54.svg",
@@ -211,14 +218,14 @@ const blogPosts = [
     conclusion: "If Apple succeeds in bringing home robots to market, it could transform daily life for millions. From managing smart home devices to providing companionship, these robots could become an integral part of the modern household."
   },
   {
-    title: "Microsoft Drops From OpenAI's Boards",
-    image: "assets/img/news/news2.jpg",
+    id: 2,
+    title: "Introducing Apple Intelligence",
+    image: "assets/img/news/news1.jpg",
     imageAlt: "assets/img/news/computer.fcd1bd54.svg",
-    date: "April 10, 2024",
+    date: "April 15, 2024",
     category: "Technology",
-    author: "John Appleseed",
-    lead: `Microsoft has relinquished its observer seat on OpenAI's board amid growing antitrust scrutiny, with Apple also opting out of a similar position, as reported by the Financial Times, Bloomberg, and others. This move reflects the tech giants' efforts to address regulatory concerns about their influence in the AI sector, 
-              <br> <br> Antitrust authorities in the US, UK, and EU have been closely examining Microsoft's substantial investment in OpenAI, raising concerns about potential control over the AI startup.`,
+    author: "Jane Doe",
+    lead: "Apple has announced the launch of Apple Intelligence, a new AI-powered home robotics platform designed to revolutionize the way we live and work.",
     features: [
       "Enhanced Siri Integration for Comprehensive Voice Command Control",
       "Sophisticated Smart Home Device Management and Automation",
@@ -299,7 +306,7 @@ function renderBlogPosts(posts) {
       <p class="blog-meta mb-3">${post.date} in <span class="blog-category">${post.category}</span> by <a href="#" class="text-decoration-none">${post.author}</a></p>
       <p class="blog-lead mb-4">${post.lead}</p>
       <div class="text-end mt-4">
-        <a href="article.html?id=${index + 1}" class="blog-btn">
+        <a href="article.html?id=${post.id}" class="blog-btn">
           <span class="circle"></span>
           <span class="text">Read Full Article</span>
           <svg class="arr-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"/></svg>
@@ -397,56 +404,7 @@ function createExcerpt(element, lines) {
   }
 }
 
-function renderFullArticle(post) {
-  const articleContainer = document.getElementById('article-container');
-  articleContainer.innerHTML = `
-    <article class="pb-5 blog-article">
-      <h2 class="display-5 link-body-emphasis mb-3">
-        <span class="blog-post-title">${post.title}</span>
-      </h2>
-      <div class="blog-image-container position-relative overflow-hidden mb-4">
-        <img src="${post.image}" alt="${post.title}" class="blog-image">
-      </div>
-      <p class="blog-meta mb-3">${post.date} in <span class="blog-category">${post.category}</span> by <a href="#" class="text-decoration-none">${post.author}</a></p>
-      <p class="blog-lead mb-4">${post.lead}</p>
-      <h3 class="mt-4 mb-3">Key Points in Microsoft and Apple's Departure from OpenAI</h3>
-      <ul class="list-unstyled">
-        ${post.features.map(feature => `<li class="blog-list-item"><i class="bi bi-check-circle-fill text-success me-2"></i>${feature}</li>`).join('')}
-      </ul>
-      <!-- New image added here with Bootstrap classes -->
-      <div class="additional-image-container d-flex justify-content-center mb-4 py-4">
-        <img src="${post.imageAlt}" alt="Computer" class="img-fluid w-80">
-      </div>
-      <!-- Modified aside element -->
-      <aside class="bg-light p-3 mb-4 rounded aside-custom">
-        <h4 class="aside-title">Quick Facts</h4>
-        <ul class="aside-list">
-          <li>Microsoft and Apple's significant shift in AI strategy</li>
-          <li>Potential impact on the AI industry landscape</li>
-          <li>Implications for future collaborations and competition</li>
-        </ul>
-      </aside>
-      <h3 class="mt-4 mb-3">Challenges and Considerations</h3>
-      <p>The departure of Microsoft and Apple from OpenAI raises several important questions:</p>
-      <ol>
-        ${post.challenges.map(challenge => `<li>${challenge}</li>`).join('')}
-      </ol>
-      <h3 class="mt-4 mb-3">What This Means for the Tech Industry</h3>
-      <p>${post.conclusion}</p>
-      <p class="mb-4">${post.additionalParagraph}</p>
-    </article>
-  `;
-}
 
-// Load the article data and render it
-document.addEventListener('DOMContentLoaded', () => {
-  const articleId = new URLSearchParams(window.location.search).get('id');
-  if (articleId && blogPosts[articleId - 1]) {
-    renderFullArticle(blogPosts[articleId - 1]);
-  } else {
-    // Handle error or redirect
-  }
-});
 
 function renderPagination() {
   const totalPages = Math.ceil(blogPosts.length / postsPerPage);

@@ -3255,45 +3255,55 @@ body.dark-mode #blog {
    gap: 10px;
 }
 
-
 .read-more {
-   transition: all 0.3s ease;
-   font-size: 1rem !important; /* Increased from 0.875rem to 1rem */
+   transition: all 0.3s ease-in-out;
+   font-size: 0.9rem !important;
    margin-left: auto;
    color: inherit;
    font-weight: 600;
    font-family: 'Proxima Nova', sans-serif;
+   position: relative;
+   padding-right: 20px; /* Add padding to make room for the arrow */
 }
 
 .blog-post:hover .read-more {
-   padding-right: 10px;
    color: #6a11cb;
 }
 
-.read-more i {
+.read-more::after {
+   content: '→';
+   position: absolute;
+   right: 0;
+   font-size: 1.2rem;
+   top: 50%;
+   transform: translateY(-50%);
    opacity: 0;
-   transform: translateX(-10px);
-   transition: all 0.3s ease;
+   transition: all 0.3s ease-in-out;
 }
 
-.blog-post:hover .read-more i {
+.blog-post:hover .read-more::after {
+   right: 5px; /* Adjust this value to position the arrow correctly */
    opacity: 1;
-   transform: translateX(5px);
 }
 
 .blog-post {
    width: calc(33.33% - 20px);
    margin-bottom: 30px;
-   -webkit-backdrop-filter: blur(5px);
    background: rgba(255, 255, 255, 0.1);
    border-radius: 10px;
    overflow: hidden;
-   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 8px;
-   transition: all 0.3s ease;
-   transform: translateY(0);
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+   transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+   transform: translateY(0) scale(1);
    backdrop-filter: blur(10px);
+   -webkit-backdrop-filter: blur(10px);
    border: 1px solid rgba(255, 255, 255, 0.18);
    font-family: 'Proxima Nova', sans-serif;
+}
+
+.blog-post:hover {
+   transform: translateY(-10px) scale(1.02);
+   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
 .blog-post:hover {
@@ -3411,3 +3421,5 @@ h4, h2 {
    font-family: 'Proxima Nova', sans-serif !important;
    font-weight: bold;
  }
+
+ 

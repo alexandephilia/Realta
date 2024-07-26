@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="assets/css/Hero-Clean-Reverse-images.css">
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/css/blog.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
     <link rel="stylesheet" href="assets/css/mobilenav.css">
 
@@ -117,10 +118,10 @@
 
 <body>
     <header>
-  <nav class="navbar navbar-expand-lg sticky-top navbar-shrink navbar-light" id="mainNav">
-    <div class="container-fluid container">
+        <nav class="navbar navbar-expand-lg sticky-top navbar-shrink navbar-light" id="mainNav">
+            <div class="container-fluid container-lg px-3">
             <a class="navbar-logo d-flex align-items-center" href="/">
-                <img src="assets/img/realta.png" alt="Realta Logo" style="width: 150px; height: 50%; ">
+                <img src="assets/img/realta.png" alt="Realta Logo" style="width: 150px; height: 50%; padding: 5px;">
             </a>
             <div class="navbar-mobile-actions">
                 <button id="darkModeToggleNav" class="btn-custom download-btn ms-2"
@@ -658,8 +659,8 @@
 
     <section id="home" style="margin-bottom: 0; position: relative; overflow: hidden;">
         <div class="circle-blur"></div>
-        <div id="" class="container ">
-            <div id="" class="container-fluid">
+        <div id="container-header" class="container py-5">
+            <div id="container-headerin" class="container-fluid container-lg px-3">
                 <!-- Content -->
                 <!-- Carousel Start -->
                 <div id="businessCarousel" class="carousel slide custom-carousel" data-bs-ride="carousel">
@@ -678,7 +679,7 @@
                             <div class="row gy-5 align-items-center">
                                 <!-- Left Column -->
                                 <div
-                                    class="col-lg-7 d-flex flex-column justify-content-center align-items-start text-lg-start">
+                                    class="col-lg-7 d-flex flex-column justify-content-center align-items-start text-lg-start p-4 p-lg-5">
                                     <div class="mb-4">
                                         <h1 class="display-3 fw-bold mb-1" style="font-size:45px; ">Manage Your</h1>
                                         <span class="dynamic-text-container"></span>
@@ -1388,7 +1389,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="contentCards" class="container row justify-content-center">
+                <div id="contentCards" class="row justify-content-center">
                     <!-- Content cards will be dynamically inserted here -->
                 </div>
             </div>
@@ -1506,7 +1507,7 @@
         </section>
 
         <!-- Cards Section -->
-        <section id="solutions" class="partners-section py-5">
+        <section id="solutions" class="partners-section py-4">
             <div class="container-fluid container-lg px-3">
                 <style>
                     .solution-section {
@@ -1533,7 +1534,94 @@
                         color: transparent;
                     }
 
-                 </style>
+                    .solution-card-container {
+                        display: flex;
+                        flex-wrap: wrap;
+                        justify-content: center;
+                        gap: 2rem;
+                    }
+
+                    .solution-card {
+                        background-color: white;
+                        border-radius: 10px;
+                        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                        overflow: hidden;
+                        display: flex;
+                        flex-direction: column;
+                        transition: box-shadow 0.3s ease;
+                        width: 100%;
+                        max-width: 350px;
+                        height: 340px;
+                        text-align: center;
+                    }
+
+                    .solution-card:hover {
+                        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+                    }
+
+                    .solution-card-image {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        padding-top: 2.5rem;
+                        flex: 1;
+                    }
+
+                    .solution-card-image img {
+                        width: 60%;
+                        height: auto;
+                        max-height: 120px;
+                        object-fit: contain;
+                    }
+
+                    /* body.dark-mode .solution-card-image img {
+                        filter: brightness(0) invert(1);
+                    } */
+
+                    .solution-card-content {
+                        padding: 2rem;
+                        flex: 1;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                    }
+
+                    .solution-card-title {
+                        font-weight: bold;
+                        font-size: 1.3rem;
+                        margin-bottom: 1rem;
+                        color: #000;
+                    }
+
+                    .solution-card-description {
+                        color: #000;
+                        margin: 0;
+                        font-size: 1rem;
+                        flex-grow: 1;
+                        overflow: hidden;
+                    }
+
+                    @media (max-width: 768px) {
+                        .solution-title {
+                            font-size: 2.5rem;
+                        }
+
+                        .solution-subtitle {
+                            font-size: 0.9rem !important;
+                        }
+                    }
+
+                    @media (max-width: 576px) {
+                        .solution-title {
+                            font-size: 2rem;
+                        }
+
+                        .solution-subtitle {
+                            font-size: 0.8rem;
+                        }
+                    }
+                </style>
 
 
 
@@ -1557,146 +1645,127 @@
                                 }
                             }
                         </style>
+                          <h3 class="solution-subtitle">Real Partnership To Deliver A Reliable Solution.</h3>
 
-                        
-                        <h3 class="solution-subtitle">Real Partnership To Deliver A Reliable Solution.</h3>
-
-                            <div class="row g-4">
-                                <!-- Hotel Management System -->
-                                <div class="col-4">
-                                    <a href="https://realta.co.id/hospitality-system/" target="_blank" class="text-decoration-none">
+                          <div class="row g-4">
+                              <!-- Hotel Management System -->
+                              <div class="col-4 solution-item">
+                                  <a href="https://realta.co.id/hospitality-system/" target="_blank" class="text-decoration-none">
+                                      <div class="h-100 p-4 bg-light rounded-3 shadow-sm d-flex flex-column align-items-center justify-content-center solution-card">
+                                          <img src="assets/img/probes1.png" alt="Hotel Management System" class="img-fluid mb-3 solution-image">
+                                          <h3 class="h5 mb-3 text-center">HOTEL MANAGEMENT SYSTEM</h3>
+                                          <p class="text-muted text-center small">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                      </div>
+                                  </a>
+                              </div>
+                              
+                              <!-- Golf Course System -->
+                              <div class="col-4 solution-item">
+                                  <div class="h-100 p-4 bg-light rounded-3 shadow-sm d-flex flex-column align-items-center justify-content-center solution-card">
+                                      <img src="assets/img/golf.png" alt="Golf Course System" class="img-fluid mb-3 solution-image">
+                                      <h3 class="h5 mb-3 text-center">GOLF COURSE SYSTEM</h3>
+                                      <p class="text-muted text-center small">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  </div>
+                              </div>
+                              
+                              <!-- HR System -->
+                              <div class="col-4 solution-item">
+                                  <div class="h-100 p-4 bg-light rounded-3 shadow-sm d-flex flex-column align-items-center justify-content-center solution-card">
+                                      <img src="assets/img/probes3.png" alt="HR System" class="img-fluid mb-3 solution-image">
+                                      <h3 class="h5 mb-3 text-center">HR SYSTEM</h3>
+                                      <p class="text-muted text-center small">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  </div>
+                              </div>
+                              
+                              <!-- Property & Tenancy System -->
+                              <div class="col-4 solution-item">
+                                  <div class="h-100 p-4 bg-light rounded-3 shadow-sm d-flex flex-column align-items-center justify-content-center solution-card">
+                                      <img src="assets/img/probes4.png" alt="Property & Tenancy System" class="img-fluid mb-3 solution-image">
+                                      <h3 class="h5 mb-3 text-center">PROPERTY & TENANCY SYSTEM</h3>
+                                      <p class="text-muted text-center small">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                  </div>
+                              </div>
+                              
+                             <!-- ITSM, ITAM & Unified Endpoint Management -->
+                                    <div class="col-4 solution-item">
                                         <div class="h-100 p-4 bg-light rounded-3 shadow-sm d-flex flex-column align-items-center justify-content-center solution-card">
-                                            <img src="assets/img/probes1.png" alt="Hotel Management System" class="img-fluid mb-3 solution-image">
-                                            <h3 class="h5 mb-3 text-center">HOTEL MANAGEMENT SYSTEM</h3>
-                                            <p class="text-muted text-center small">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                            <img src="assets/img/probes5.png" alt="ITSM, ITAM & Unified Endpoint Management" class="img-fluid mb-3 solution-image">
+                                            <h3 class="h5 mb-3 text-center">ITSM, ITAM & UNIFIED ENDPOINT MANAGEMENT</h3>
+                                            <p class="text-muted text-center small">lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                                         </div>
-                                    </a>
-                                </div>
-                                
-                                <!-- Golf Course System -->
-                                <div class="col-4">
-                                    <div class="h-100 p-4 bg-light rounded-3 shadow-sm d-flex flex-column align-items-center justify-content-center solution-card">
-                                        <img src="assets/img/golf.png" alt="Golf Course System" class="img-fluid mb-3 solution-image">
-                                        <h3 class="h5 mb-3 text-center">GOLF COURSE SYSTEM</h3>
-                                        <p class="text-muted text-center small">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                                     </div>
-                                </div>
-                                
-                                <!-- HR System -->
-                                <div class="col-4">
-                                    <div class="h-100 p-4 bg-light rounded-3 shadow-sm d-flex flex-column align-items-center justify-content-center solution-card">
-                                        <img src="assets/img/probes3.png" alt="HR System" class="img-fluid mb-3 solution-image">
-                                        <h3 class="h5 mb-3 text-center">HR SYSTEM</h3>
-                                        <p class="text-muted text-center small">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                    </div>
-                                </div>
-                                
-                                <!-- Property & Tenancy System -->
-                                <div class="col-4">
-                                    <div class="h-100 p-4 bg-light rounded-3 shadow-sm d-flex flex-column align-items-center justify-content-center solution-card">
-                                        <img src="assets/img/probes4.png" alt="Property & Tenancy System" class="img-fluid mb-3 solution-image">
-                                        <h3 class="h5 mb-3 text-center">PROPERTY & TENANCY SYSTEM</h3>
-                                        <p class="text-muted text-center small">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                    </div>
-                                </div>
-                                
-                                <!-- ITSM, ITAM & Unified Endpoint Management -->
-                                <div class="col-4">
-                                    <div class="h-100 p-0 bg-light rounded-3 shadow-sm d-flex flex-column align-items-center justify-content-center solution-card">
-                                        <img src="assets/img/probes5.png" alt="ITSM, ITAM & Unified Endpoint Management" class="img-fluid mb-3 solution-image">
-                                        <h3 class="h5 mb-3 text-center">ITSM, ITAM & UNIFIED ENDPOINT MANAGEMENT</h3>
-                                        <p class="text-muted text-center small">lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                    </div>
-                                </div>
-                                
-                                <!-- ERP & EAM -->
-                                <div class="col-4">
-                                    <div class="h-100 p-4 bg-light rounded-3 shadow-sm d-flex flex-column align-items-center justify-content-center solution-card">
-                                        <img src="assets/img/probes6.png" alt="ERP & EAM" class="img-fluid mb-3 solution-image">
-                                        <h3 class="h5 mb-3 text-center">ERP & EAM</h3>
-                                        <p class="text-muted text-center small">lorem ipsum dolor sit amet, consectetur adipiscing eli. </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <style>
-                                .solution-card h3 {
-                                    font-family: 'Proxima Nova', sans-serif;
-                                    font-weight: 700; /* Makes the text bolder */
-                                }
+                              
+                              <!-- ERP & EAM -->
+                              <div class="col-4 solution-item">
+                                  <div class="h-100 p-4 bg-light rounded-3 shadow-sm d-flex flex-column align-items-center justify-content-center solution-card">
+                                      <img src="assets/img/probes6.png" alt="ERP & EAM" class="img-fluid mb-3 solution-image">
+                                      <h3 class="h5 mb-3 text-center">ERP & EAM</h3>
+                                      <p class="text-muted text-center small">lorem ipsum dolor sit amet, consectetur adipiscing eli. </p>
+                                  </div>
+                              </div>
+                          </div>
+                          <style>
+                              .solution-item {
+                                  padding: 0 15px;
+                                  margin-bottom: 20px;
+                              }
 
-                                .solution-card p {
-                                    font-family: 'Proxima Nova', sans-serif;
-                                    font-weight: 400; /* Makes the text bolder */
-                                }
+                              .solution-card {
+                                  height: 100%;
+                                  display: flex;
+                                  flex-direction: column;
+                                  transition: all 0.3s ease;
+                              }
+                              
+                              .solution-card:hover {
+                                  transform: translateY(-5px);
+                                  box-shadow: 0 10px 10px rgba(0,0,0,0.2) !important;
+                              }
+                              
+                              .solution-image {
+                                  max-width: 60%;
+                                  height: 120px;
+                                  object-fit: contain;
+                                  margin-bottom: 1rem;
+                              }
+                              
+                              .solution-card h3 {
+                                  font-family: 'Proxima Nova', sans-serif;
+                                  font-weight: 700;
+                                  font-size: 1rem;
+                                  margin-bottom: 0.5rem;
+                              }
 
-                                .solution-card {
-                                    height: 100%;
-                                    display: flex;
-                                    flex-direction: column;
-                                    transition: all 0.3s ease;
-                                }
-                                
-                                .solution-card:hover {
-                                    transform: translateY(-5px);
-                                    box-shadow: 0 10px 10px rgba(0,0,0,0.2) !important;
-                                }
-                                
-                                .solution-image {
-                                    max-width: 60%;
-                                    height: 120px; /* Set a fixed height for all images */
-                                    object-fit: contain; /* Ensure the entire image is visible */
-                                    margin-bottom: 1rem;
-                                }
-                                
-                                .solution-content {
-                                    flex-grow: 1;
-                                    display: flex;
-                                    flex-direction: column;
-                                    justify-content: space-between;
-                                }
-                                
-                                .solution-content h3 {
-                                    font-size: 1rem;
-                                    margin-bottom: 0.5rem;
-                                }
-                                
-                                .solution-content p {
-                                    font-size: 0.8rem;
-                                    margin-bottom: 0;
-                                }
-                                
-                                @media (max-width: 768px) {
-                                    .col-4 {
-                                        width: 50%; /* 2 columns on smaller screens */
-                                        padding: 0 10px; /* Add horizontal spacing */
-                                        margin-bottom: 20px; /* Add vertical spacing */
-                                    }
-                                }
-                                
-                                @media (max-width: 576px) {
-                                    .col-4 {
-                                        width: 100%; /* 1 column on very small screens */
-                                        padding: 0 15px; /* Increase horizontal spacing */
-                                        margin-bottom: 30px; /* Increase vertical spacing */
-                                    }
-                                }
+                              .solution-card p {
+                                  font-family: 'Proxima Nova', sans-serif;
+                                  font-weight: 400;
+                                  font-size: 0.9rem;
+                                  margin-bottom: 0;
+                              }
+                              
+                              .row {
+                                  margin-left: -15px;
+                                  margin-right: -15px;
+                              }
 
-                                /* Ensure consistent spacing for all screen sizes */
-                                .row {
-                                    margin-left: -15px;
-                                    margin-right: -15px;
-                                }
-
-                                .col-4 {
-                                    padding: 0 15px;
-                                    margin-bottom: 30px;
-                                }
-                            </style>
-                    </div>
-                </section>
-            </div>
-            
-        </section>
+                              @media (max-width: 768px) {
+                                  .solution-item {
+                                      width: 50%;
+                                      padding: 0 10px;
+                                      margin-bottom: 20px;
+                                  }
+                              }
+                              
+                              @media (max-width: 576px) {
+                                  .solution-item {
+                                      width: 100%;
+                                      padding: 0 15px;
+                                      margin-bottom: 30px;
+                                  }
+                              }
+                          </style>
+                  </div>
+              </section>
 
         <!-- TESTIMONIAL -->
         <div id="video-overlay" class="video-overlay">
