@@ -71,23 +71,29 @@ document.addEventListener('DOMContentLoaded', function () {
 
     postsToShow.forEach(post => {
       const postElement = document.createElement('div');
-      postElement.className = 'blog-post';
+      postElement.className = 'blog-post card'; // Remove h-100 class
       postElement.innerHTML = `
-        <img src="${post.image}" alt="${post.alt}">
-        <div class="blog-post-content">
-          <div class="blog-post-category">${post.category}</div>
-          <div class="blog-post-title">${post.title}</div>
-          <div class="blog-post-text">${post.text}</div>
-          <div class="blog-post-meta">
-            <span>${post.date}</span>
-            <span>${post.type}</span>
+        <div class="card-img-top-wrapper">
+          <img src="${post.image}" alt="${post.alt}" class="card-img-top rounded-image">
+        </div>
+        <div class="card-body d-flex flex-column">
+          <div class="blog-post-category mb-2">${post.category}</div>
+          <h5 class="blog-post-title card-title">${post.title}</h5>
+          <p class="blog-post-text card-text flex-grow-1">${post.text}</p>
+          <hr class="my-3">
+          <div class="blog-post-meta d-flex justify-content-between align-items-center">
+            <div>
+              <span class="me-3">${post.date}</span>
+              <span>${post.type}</span>
+            </div>
             <a href="${post.link || '#'}" class="read-more" ${post.link ? 'target="_blank"' : ''}>Read more <i class="fas fa-arrow-right"></i></a>
           </div>
         </div>
       `;
       container.appendChild(postElement);
     });
-
+    
+    
     updatePagination();
     addCardClickListeners();
   }
@@ -204,16 +210,46 @@ const blogPosts = [
 
     conclusion: "If Apple succeeds in bringing home robots to market, it could transform daily life for millions. From managing smart home devices to providing companionship, these robots could become an integral part of the modern household."
   },
+  {
+    title: "Microsoft Drops From OpenAI's Boards",
+    image: "assets/img/news/news2.jpg",
+    imageAlt: "assets/img/news/computer.fcd1bd54.svg",
+    date: "April 10, 2024",
+    category: "Technology",
+    author: "John Appleseed",
+    lead: `Microsoft has relinquished its observer seat on OpenAI's board amid growing antitrust scrutiny, with Apple also opting out of a similar position, as reported by the Financial Times, Bloomberg, and others. This move reflects the tech giants' efforts to address regulatory concerns about their influence in the AI sector, 
+              <br> <br> Antitrust authorities in the US, UK, and EU have been closely examining Microsoft's substantial investment in OpenAI, raising concerns about potential control over the AI startup.`,
+    features: [
+      "Enhanced Siri Integration for Comprehensive Voice Command Control",
+      "Sophisticated Smart Home Device Management and Automation",
+      "Advanced AI Algorithms for Personalized Learning and Adaptation to User Preferences",
+      "Seamless Integration with Existing Apple Ecosystem for a Unified User Experience"
+    ],
+    challenges: [
+      "Privacy and data security in the home",
+      "Balancing functionality with aesthetics",
+      "Ensuring seamless integration with existing Apple devices",
+      "Pricing strategy for mass market adoption"
+    ],
+    additionalParagraph: "This move by Apple represents a significant shift in their product strategy. While the company has long been a leader in personal computing and mobile devices, entering the home robotics market puts them in direct competition with established players like iRobot and emerging startups in the field. The potential for Apple to leverage its existing ecosystem and AI capabilities could give it a unique advantage in this space.",
+
+    conclusion: "If Apple succeeds in bringing home robots to market, it could transform daily life for millions. From managing smart home devices to providing companionship, these robots could become an integral part of the modern household."
+  }
   // Add more blog post objects here
 ];
 
-const postsPerPage = 1;
+const postsPerPage = 4;
 let currentPage = 1;
 
-function renderBlogPost(post) {
+function renderBlogPosts(posts) {
   const blogContainer = document.getElementById('blog-container');
-  blogContainer.innerHTML = `
-           <style>
+  blogContainer.innerHTML = ''; // Clear existing content
+
+  posts.forEach((post, index) => {
+    const postElement = document.createElement('article');
+    postElement.className = 'pb-5 blog-article';
+    postElement.innerHTML = `
+     <style>
            
            .blog-post-title {
             display: inline;
@@ -254,7 +290,6 @@ function renderBlogPost(post) {
             }
        
           </style>
-          <article class="pb-5 blog-article">
       <h2 class="display-5 link-body-emphasis mb-3">
         <span class="blog-post-title">${post.title}</span>
       </h2>
@@ -264,20 +299,60 @@ function renderBlogPost(post) {
       <p class="blog-meta mb-3">${post.date} in <span class="blog-category">${post.category}</span> by <a href="#" class="text-decoration-none">${post.author}</a></p>
       <p class="blog-lead mb-4">${post.lead}</p>
       <div class="text-end mt-4">
-        <a href="article.html?id=${currentPage}" class="blog-btn">
+        <a href="article.html?id=${index + 1}" class="blog-btn">
           <span class="circle"></span>
           <span class="text">Read Full Article</span>
           <svg class="arr-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"/></svg>
           <svg class="arr-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"/></svg>
         </a>
       </div>
-    </article>
-  `;
+      <h3 class="latest-post-title pb-4 mb-0">Featuring</h3>
+    <div class="row mt-4">
+      <div class="col-md-6">
+        <div class="custom-blog-card">
+          <div class="custom-blog-card__image-container">
+            <img src="assets/img/news/new7.png" class="custom-blog-card__image" alt="Meta Platforms's New AI-Powered Search Tool">
+            <div class="custom-blog-card__overlay"></div>
+            <h5 class="custom-blog-card__title">Meta Platforms's New AI-Powered Search Tool</h5>
+          </div>
+          <div class="custom-blog-card__content">
+            <p class="custom-blog-card__text">Meta Platforms introduces a revolutionary AI-powered search tool...</p>
+            <div class="custom-blog-card__footer">
+              <a href="#" class="custom-blog-card__read-more">Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="custom-blog-card">
+          <div class="custom-blog-card__image-container">
+            <img src="assets/img/news/news6.jpg" class="custom-blog-card__image" alt="React Hooks">
+            <div class="custom-blog-card__overlay"></div>
+            <h5 class="custom-blog-card__title">Mastering React Hooks: A Comprehensive Guide</h5>
+          </div>
+          <div class="custom-blog-card__content">
+            <p class="custom-blog-card__text">Dive deep into React Hooks with our comprehensive guide...</p>
+            <div class="custom-blog-card__footer">
+              <a href="#" class="custom-blog-card__read-more">Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    `;
+    blogContainer.appendChild(postElement);
+  });
 
 
-  // Truncate the lead text to a professional, New York Times-style excerpt
-  createExcerpt(document.querySelector('.blog-lead'), 5);
+  // Apply the createExcerpt function to each blog lead
+  document.querySelectorAll('.blog-lead').forEach(lead => createExcerpt(lead, 5));
 }
+
+// Update the initial render to use the new function
+renderBlogPosts(blogPosts.slice(0, postsPerPage));
+
+
+
 function createExcerpt(element, lines) {
   const lineHeight = parseInt(window.getComputedStyle(element).lineHeight);
   const maxHeight = lineHeight * lines;

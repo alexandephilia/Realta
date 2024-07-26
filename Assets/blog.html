@@ -367,224 +367,41 @@
       </div>
     </nav>
     </header>
-    <style>
-      .blog-title {
-        font-family: 'Proxima Nova', sans-serif;
-        font-size: 2.5rem;
-        font-style: normal;
-        font-weight: bolder;
-        line-height: 1.2;
-        color: #ffffff;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        margin-bottom: 1rem;
-      }
 
-      .blog-description {
-        font-family: 'Proxima Nova', sans-serif;
-        font-size: 1.25rem;
-        font-weight: 400;
-        color: #f8f9fa;
-        line-height: 1.5;
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-        margin-bottom: 1.5rem;
-      }
+    <!-- BLOG SECTION -->
 
-      .blog-read-more {
-        font-family: 'Proxima Nova', sans-serif;
-        color: #ffffff;
-        text-decoration: none;
-        font-weight: 100;
-        transition: color 0.3s ease;
-        text-shadow: none;
-        position: relative;
-        padding-right: 20px;
-      }
+    <main class="container py-5 ">
 
-      .blog-read-more i {
-        position: absolute;
-        right: 0;
-        opacity: 0;
-        transition: opacity 0.3s ease, transform 0.3s ease;
-      }
-
-      .blog-read-more:hover {
-        color: #6a11cb;
-      }
-
-      .blog-read-more:hover i {
-        opacity: 1;
-        transform: translateX(5px);
-      }
-
-      .featured-post {
-        transition: all 0.3s ease;
-        transform: translateY(0);
-        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 8px;
-        border-radius: 10px;
-        overflow: hidden;
-      }
-
-      .featured-post-img {
-        transition: transform 0.3s ease;
-        background-size: cover;
-        background-position: center;
-        height: 100%;
-        transform: scale(1.1);
-      }
-
-      .featured-post:hover .featured-post-img {
-        transform: scale(1.2);
-      }
-    </style>
-    <main class="container py-5">
-      <!-- <div class="featured-post p-4 p-md-5 mb-4 rounded text-body-emphasis position-relative"
-        style="height: 400px; overflow: hidden;">
-        <div class="featured-post-img position-absolute top-0 start-0 w-100 h-100"
-          style="background-image: linear-gradient(rgba(0, 0, 0, 0.205), rgba(0, 0, 0, 0.281)), url('assets/blog/nothing.jpg');">
-        </div>
-        <div class="col-lg-6 px-0 position-relative">
-          <h1 class="blog-title display-4">Nothing's CMF Big Launch Day</h1>
-          <p class="blog-description lead">Nothing's sub-brand CMF has launched a new lineup of affordable tech
-            products. </p>
-          <p class="lead mb-0"><a href="#" class="blog-read-more">Read More</a></p>
-        </div>
-      </div> -->
-
-
-      <style>
-        #featured-title {
-          font-family: 'Proxima Nova', sans-serif;
-          font-size: 1.25rem;
-          font-weight: 600;
-          margin-bottom: 0.5rem;
-        }
-
-        .featured-post {
-          position: relative;
-          overflow: hidden;
-          border-radius: 10px;
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-          transition: all 0.3s ease;
-        }
-
-        .featured-post:hover {
-          transform: translateY(-10px);
-          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-        }
-
-
-        #featured-description {
-          font-family: 'Proxima Nova', sans-serif;
-          font-size: 1.0rem;
-          padding-top: 5px;
-          color: #6c757d;
-        }
-
-        .featured-date-read {
-          font-family: 'Proxima Nova', sans-serif;
-          font-size: 0.875rem;
-          color: #6c757d;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          margin-top: 0.5rem;
-        }
-
-        .featured-read {
-          font-family: 'Proxima Nova', sans-serif;
-          color: #ffffff;
-          text-decoration: none;
-          transition: color 0.3s ease;
-          text-shadow: none;
-          position: absolute;
-          bottom: 10px;
-          left: 10px;
-          z-index: 1;
-          padding-right: 20px;
-        }
-
-        .featured-read::after {
-          content: '➔';
-          position: absolute;
-          right: 0;
-          opacity: 0;
-          transition: opacity 0.3s ease, transform 0.3s ease;
-        }
-
-        .featured-read:hover {
-          color: #6a11cb;
-        }
-
-        .featured-read:hover::after {
-          opacity: 1;
-          transform: translateX(5px);
-        }
-
-        .featured-image {
-          transition: transform 0.3s ease;
-        }
-
-        .featured-image:hover {
-          transform: scale(1.2);
-        }
-
-        .image-container {
-          position: relative;
-          overflow: hidden;
-        }
-
-        .row.g-0 {
-          transition: all 0.3s ease;
-          transform: translateY(0);
-          box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 8px;
-
-        }
-
-        .row.g-0:hover {
-          transform: translateY(-10px);
-          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-        }
-      </style>
-
-      <div class="row mb-2">
-        <div id="featured-card" class="col-md-6">
-          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 h-md-250 position-relative featured-card-inner">
-            <div class="col p-4 d-flex flex-column position-static">
-              <strong class="d-inline-block mb-2 text-primary-emphasis">World</strong>
-              <h3 class="mb-0" id="featured-title">OpenAI's 5 Steps to AGI</h3>
-              <p class="card-text mb-auto" id="featured-description">This is a wider card with supporting text below as
-                a natural lead-in to additional content.</p>
-              <div class="featured-date-read">
-                <span id="featured-date">Jul 12, 2023 15:30 | Published by John Doe</span>
-              </div>
-            </div>
-            <div class="col-auto d-none d-lg-block image-container">
-              <img src="assets/blog/agi.jpg" alt="AGI" class="img-fluid featured-image"
-                style="object-fit: cover; width: 200px; height: 100%; background-image: linear-gradient(rgba(0, 0, 0, 0.205), rgba(0, 0, 0, 0.281));">
-              <a href="#" class="featured-read" id="featured-read">Continue reading</a>
-            </div>
+      <section class="blog-section pt-5">
+        <div class="searchable mb-5">
+        <h1 class="mb-4 text-center knowledge-center-title">
+          <span class="gradient-text"> Realta Knowledge Center</span>
+        </h1>         
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Search posts">
+            <button type="submit" class="search-button" id="search-button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </button>
+            
           </div>
+          
+          <!-- Add dropdown for search results -->
+          <div id="search-results" class="search-results-dropdown"></div>
+          
+         
+          <!-- Add this line below the search container -->
         </div>
-        <div id="featured-card" class="col-md-6">
-          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 h-md-250 position-relative featured-card-inner">
-            <div class="col p-4 d-flex flex-column position-static">
-              <strong class="d-inline-block mb-2 text-primary-emphasis">Tech</strong>
-              <h3 class="mb-0" id="featured-title">The World's Smallest Android Phone</h3>
-              <p class="card-text mb-auto" id="featured-description">Discover the innovative design and surprising
-                capabilities of the tiniest Android smartphone ever created.</p>
-              <div class="featured-date-read">
-                <span id="featured-date">Jul 13, 2023 09:45 | Published by Jane Smith</span>
-              </div>
-            </div>
-            <div class="col-auto d-none d-lg-block image-container">
-              <img src="assets/blog/small.jpg" alt="Small Android Phone" class="img-fluid featured-image"
-                style="object-fit: cover; width: 200px; height: 100%; background-image: linear-gradient(rgba(0, 0, 0, 0.205), rgba(0, 0, 0, 0.281));">
-              <a href="#" class="featured-read" id="featured-read">Continue reading</a>
-            </div>
-          </div>
+        <h3 class="latest-post-title pb-4 mb-4 text-center">
+          Realta Insights
+        </h3>
+        <div id="featured-articles-container" class="">
+          <!-- Featured articles will be dynamically inserted here -->
         </div>
-      </div>
-
+      </section>
 
       <style>
         .latest-post-title {
@@ -604,6 +421,16 @@
           background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 2' preserveAspectRatio='none'%3E%3Cpath d='M0,1 C25,0 75,2 100,1' stroke='%23000' fill='none' stroke-width='2'/%3E%3C/svg%3E");
           background-size: 100% 100%;
           background-repeat: no-repeat;
+        }
+
+        /* Dark mode styles */
+        body.dark-mode .latest-post-title {
+          color: #ffffff; /* Light text color for dark mode */
+        }
+
+        body.dark-mode .latest-post-title::after {
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 2' preserveAspectRatio='none'%3E%3Cpath d='M0,1 C25,0 75,2 100,1' stroke='%23ffffff' fill='none' stroke-width='2'/%3E%3C/svg%3E");
+          /* Changed stroke color to white for dark mode */
         }
       </style>
 
@@ -872,229 +699,7 @@
               </form>
             </div>
 
-            <style>
-              .blog-categories-title {
-                font-family: 'Proxima Nova', sans-serif;
-                color: #333 !important;
-              }
-
-              body.dark-mode .blog-categories-title {
-                color: #fff !important;
-              }
-
-              .blog-categories h4 {
-                margin-bottom: 1rem;
-              }
-
-              .blog-category-list {
-                list-style-type: none;
-                padding-left: 0;
-              }
-
-              .blog-category-item {
-                padding: 0.5rem 0;
-                border-bottom: 1px solid #e9ecef;
-              }
-
-              .blog-category-link {
-                color: #333;
-                text-decoration: none;
-                transition: color 0.3s ease;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-              }
-
-              .blog-category-text {
-                font-family: 'Proxima Nova', sans-serif;
-              }
-
-              .blog-category-link:hover {
-                color: #6a11cb;
-              }
-
-              .blog-category-title {
-                margin-bottom: 0;
-                font-weight: 600;
-              }
-
-              .blog-category-count {
-                font-size: 0.875rem;
-                color: #6c757d;
-              }
-            </style>
-            <div class="blog-categories container-md p-4 mb-3">
-              <h4 class="blog-categories-title fw-bold">Blog Categories</h4>
-              <ul class="blog-category-list">
-                <li class="blog-category-item">
-                  <a class="blog-category-link" href="#">
-                    <span class="blog-category-text">Technology</span>
-                    <span class="blog-category-count">12</span>
-                  </a>
-                </li>
-                <li class="blog-category-item">
-                  <a class="blog-category-link" href="#">
-                    <span class="blog-category-text">Business Solutions</span>
-                    <span class="blog-category-count">8</span>
-                  </a>
-                </li>
-                <li class="blog-category-item">
-                  <a class="blog-category-link" href="#">
-                    <span class="blog-category-text">Industry Insights</span>
-                    <span class="blog-category-count">15</span>
-                  </a>
-                </li>
-                <li class="blog-category-item">
-                  <a class="blog-category-link" href="#">
-                    <span class="blog-category-text">Company News</span>
-                    <span class="blog-category-count">6</span>
-                  </a>
-                </li>
-                <li class="blog-category-item">
-                  <a class="blog-category-link" href="#">
-                    <span class="blog-category-text">Case Studies</span>
-                    <span class="blog-category-count">9</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <style>
-              .blog-archives-title {
-                color: #333;
-                font-size: 1.25rem;
-                margin-bottom: 1rem;
-                font-family: 'Proxima Nova', sans-serif;
-              }
-
-              .blog-archive-list {
-                list-style-type: none;
-                padding: 0;
-                margin: 0;
-                font-family: 'Proxima Nova', sans-serif;
-              }
-
-              .blog-archive-item {
-                margin-bottom: 0.5rem;
-                font-family: 'Proxima Nova', sans-serif;
-              }
-
-              .blog-archive-link {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 0.5rem 0;
-                color: #333;
-                text-decoration: none;
-                transition: color 0.3s ease;
-                font-family: 'Proxima Nova', sans-serif;
-              }
-
-              .blog-archive-link:hover {
-                color: #6a11cb;
-              }
-
-              .blog-archive-text {
-                font-weight: 600;
-                font-family: 'Proxima Nova', sans-serif;
-              }
-
-              .blog-archive-count {
-                font-size: 0.875rem;
-                color: #6c757d;
-                font-family: 'Proxima Nova', sans-serif;
-              }
-            </style>
-
-            <div class="blog-archives container-md p-4 mb-3">
-              <h4 class="blog-archives-title fw-bold">Archives</h4>
-              <ul class="blog-archive-list">
-                <li class="blog-archive-item">
-                  <a class="blog-archive-link" href="#">
-                    <span class="blog-archive-text">March 2021</span>
-                    <span class="blog-archive-count">5</span>
-                  </a>
-                </li>
-                <li class="blog-archive-item">
-                  <a class="blog-archive-link" href="#">
-                    <span class="blog-archive-text">February 2021</span>
-                    <span class="blog-archive-count">4</span>
-                  </a>
-                </li>
-                <li class="blog-archive-item">
-                  <a class="blog-archive-link" href="#">
-                    <span class="blog-archive-text">January 2021</span>
-                    <span class="blog-archive-count">6</span>
-                  </a>
-                </li>
-                <li class="blog-archive-item">
-                  <a class="blog-archive-link" href="#">
-                    <span class="blog-archive-text">December 2020</span>
-                    <span class="blog-archive-count">3</span>
-                  </a>
-                </li>
-                <li class="blog-archive-item">
-                  <a class="blog-archive-link" href="#">
-                    <span class="blog-archive-text">November 2020</span>
-                    <span class="blog-archive-count">4</span>
-                  </a>
-                </li>
-                <li class="blog-archive-item">
-                  <a class="blog-archive-link" href="#">
-                    <span class="blog-archive-text">October 2020</span>
-                    <span class="blog-archive-count">5</span>
-                  </a>
-                </li>
-                <li class="blog-archive-item">
-                  <a class="blog-archive-link" href="#">
-                    <span class="blog-archive-text">September 2020</span>
-                    <span class="blog-archive-count">4</span>
-                  </a>
-                </li>
-                <li class="blog-archive-item">
-                  <a class="blog-archive-link" href="#">
-                    <span class="blog-archive-text">August 2020</span>
-                    <span class="blog-archive-count">3</span>
-                  </a>
-                </li>
-                <li class="blog-archive-item">
-                  <a class="blog-archive-link" href="#">
-                    <span class="blog-archive-text">July 2020</span>
-                    <span class="blog-archive-count">5</span>
-                  </a>
-                </li>
-                <li class="blog-archive-item">
-                  <a class="blog-archive-link" href="#">
-                    <span class="blog-archive-text">June 2020</span>
-                    <span class="blog-archive-count">4</span>
-                  </a>
-                </li>
-                <li class="blog-archive-item">
-                  <a class="blog-archive-link" href="#">
-                    <span class="blog-archive-text">May 2020</span>
-                    <span class="blog-archive-count">6</span>
-                  </a>
-                </li>
-                <li class="blog-archive-item">
-                  <a class="blog-archive-link" href="#">
-                    <span class="blog-archive-text">April 2020</span>
-                    <span class="blog-archive-count">3</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <!-- <div class="p-4">
-              <h4 class="fst-italic">Elsewhere</h4>
-              <ol class="list-unstyled">
-                <li><a href="#">GitHub</a></li>
-                <li><a href="#">Twitter</a></li>
-                <li><a href="#">Facebook</a></li>
-              </ol>
-            </div> -->
-          </div>
-        </div>
-      </div>
+            
 
     </main>
 
@@ -1159,9 +764,11 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/bold-and-bright.js"></script>
+    <!-- <script src="assets/js/bold-and-bright.js"></script> -->
     <script src="assets/js/slider.js"></script>
     <script src="assets/js/blog.js"></script>
+    <script src="assets/js/featured.js"></script>
+
     <script src="assets/js/text.js"></script>
     <script src="assets/js/navbar.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
