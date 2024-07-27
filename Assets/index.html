@@ -93,6 +93,7 @@
             height: 1em;
             overflow: hidden;
         }
+
     }
 
     #mainNav {
@@ -102,7 +103,12 @@
         right: 0;
         z-index: 1030;
         transition: all 0.3s ease-in-out;
-        padding-right: 37px !important;
+    }
+
+    @media (max-width: 767px) {
+        #mainNav {
+            padding-right: 10px !important;
+        }
     }
 
     #mainNav.navbar-scrolled {
