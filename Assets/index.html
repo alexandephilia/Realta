@@ -1804,10 +1804,9 @@
                 margin-bottom: 0;
                 text-align: center;
                 display: -webkit-box;
-                -webkit-line-clamp: 2;
-                line-clamp: 2;
-                -webkit-box-orient: vertical;
-                overflow: hidden;
+                overflow-wrap: break-word;
+                word-break: break-word;
+
             }
         
             .card-text {
@@ -1839,6 +1838,8 @@
 
         .card-text {
             font-size: 0.75rem;
+            white-space: normal;
+            word-wrap: break-word;
         }
     }
 
