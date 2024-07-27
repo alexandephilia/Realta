@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const words2 = [
         { text: "EXCELLENCE" },
         { text: "SUCCESS" },
-        { text: "INNOVATION" }
     ];
     let currentIndex2 = 0;
     const container2 = document.querySelector('.dynamic-text-container-2');
