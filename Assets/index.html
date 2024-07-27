@@ -132,7 +132,7 @@
 
                     @media (min-width: 992px) {
                         .realta-logo {
-                            margin-left: 15px;
+                            margin-left: 3px;
                         }
                     }
                     @media (max-width: 767px) {
@@ -517,7 +517,20 @@
                     }
                 </style>
                 <div class="full-screen-sidebar">
-                    <ul class="sidebar-nav d-flex justify-content-end align-items-center"
+                    <style>
+                        @media (min-width: 992px) {
+                            .full-screen-sidebar {
+                                margin-right: -35px;
+                            }
+                        }
+                        @media (max-width: 768px) {
+                            .full-screen-sidebar {
+                                margin-right: 0;
+                            }
+                        }
+                        
+                    </style>
+                    <ul class="sidebar-nav justify-content-end align-items-center"
                         style="padding: 0; margin: 0; list-style-type: none;">
 
                         <li class="me-1"><a class="nav-link dropdown-toggle" href="#" id="solutionsDropdown"
@@ -1193,7 +1206,7 @@
             <div class="blur-orb top-left"></div>
             <div class="blur-orb bottom-right"></div>
             <div class="blur-overlay"></div>
-            <div class="container-fluid container-lg px-3">
+            <div class="container-fluid container-lg px-3 p-4">
                 <div class="row justify-content-center">
                     <div class="col-12 py-4 px-5">
                         <div class="card glass-card">
@@ -1697,7 +1710,7 @@
 
 
         <section id="partners" class="partners-section py-4">
-            <div class="container py-4 py-xl-5">
+            <div class="container p-4 py-xl-5">
                 <h1 class="text-center partners-heading">Together We Build
                     <span class="gradient-text">Solutions for You</span>
                 </h1>
@@ -1805,103 +1818,88 @@
             </div>
         </section>
 
-        <!-- Cards Section -->
-        <section id="solutions" class="py-5" style="background-color: #fdfdfd;">
-            <div class="container">
+          <!-- Cards Section -->
+          <section id="solutions" class="py-5">
+            <div class="container p-4">
                 <h1 class="solution-title text-center mb-2">Solution for <span class="gradient-text">Each
                         Business</span></h1>
                 <h3 class="solution-subtitle text-center mb-5">Real Partnership To Deliver A Reliable Solution.</h3>
 
-                <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4 justify-content-center">
                     <!-- Hotel Management System -->
-                    <div class="col-sm mb-4">
+                    <div class="col">
                         <div class="card h-100 solution-card">
                             <div class="card-body d-flex flex-column">
                                 <div class="image-container mb-3">
-                                    <img src="assets/img/probes1.png" alt="Rhapsody"
-                                        class="card-img-top solution-image">
+                                    <img src="assets/img/probes1.png" alt="Rhapsody" class="card-img-top solution-image">
                                 </div>
-                                <div class="title-container mb-2">
-                                    <h3 class="card-title h5 text-center">HOTEL MANAGEMENT SYSTEM</h3>
-                                </div>
-                                <p class="card-text text-muted text-center small mt-auto">Streamline your hotel operations with our comprehensive management system. From reservations to housekeeping, we've got you covered.</p>
+                                <h3 class="card-title h5 text-center mb-3">HOTEL MANAGEMENT SYSTEM</h3>
+                                <p class="card-text text-muted text-center small flex-grow-1">Streamline your hotel operations with our comprehensive management system. From reservations to housekeeping, we've got you covered.</p>
                             </div>
                         </div>
                     </div>
 
                     <!-- Golf Course System -->
-                    <div class="col-sm mb-4">
+                    <div class="col">
                         <div class="card h-100 solution-card">
                             <div class="card-body d-flex flex-column">
                                 <div class="image-container mb-3">
-                                    <img src="assets/img/golf.png" alt="Golf Course System"
-                                        class="card-img-top solution-image">
+                                    <img src="assets/img/golf.png" alt="Golf Course System" class="card-img-top solution-image">
                                 </div>
-                                <div class="title-container mb-2">
-                                    <h3 class="card-title h5 text-center">GOLF COURSE SYSTEM</h3>
-                                </div>
-                                <p class="card-text text-muted text-center small mt-auto">Enhance your golf course management with our tailored system. From tee time bookings to pro shop inventory, we help you stay on par.</p>
+                                <h3 class="card-title h5 text-center mb-3">GOLF COURSE SYSTEM</h3>
+                                <p class="card-text text-muted text-center small flex-grow-1">Enhance your golf course management with our tailored system. From tee time bookings to pro shop inventory, we help you stay on par.</p>
                             </div>
                         </div>
                     </div>
 
                     <!-- HR System -->
-                    <div class="col-sm mb-4">
+                    <div class="col">
                         <div class="card h-100 solution-card">
                             <div class="card-body d-flex flex-column">
                                 <div class="image-container mb-3">
                                     <img src="assets/img/probes3.png" alt="SIAP" class="card-img-top solution-image">
                                 </div>
-                                <div class="title-container mb-2">
-                                    <h3 class="card-title h5 text-center">HR SYSTEM</h3>
-                                </div>
-                                <p class="card-text text-muted text-center small mt-auto">Simplify your human resources processes with our comprehensive HR system. From recruitment to performance management, we help you nurture your most valuable asset - your people.</p>
+                                <h3 class="card-title h5 text-center mb-3">HR SYSTEM</h3>
+                                <p class="card-text text-muted text-center small flex-grow-1">Simplify your human resources processes with our comprehensive HR system. From recruitment to performance management, we help you nurture your most valuable asset - your people.</p>
                             </div>
                         </div>
                     </div>
 
                     <!-- Property & Tenancy System -->
-                    <div class="col-sm mb-4">
+                    <div class="col">
                         <div class="card h-100 solution-card">
                             <div class="card-body d-flex flex-column">
                                 <div class="image-container mb-3">
-                                    <img src="assets/img/probes4.png" alt="Bimasakti"
-                                        class="card-img-top solution-image">
+                                    <img src="assets/img/probes4.png" alt="Bimasakti" class="card-img-top solution-image">
                                 </div>
-                                <div class="title-container mb-2">
-                                    <h3 class="card-title h5 text-center">PROPERTY & TENANCY SYSTEM</h3>
-                                </div>
-                                <p class="card-text text-muted text-center small mt-auto">Efficiently manage your properties and tenants with our robust system. From lease management to maintenance requests, we help you maximize your real estate investments.</p>
+                                <h3 class="card-title h5 text-center mb-3">PROPERTY & TENANCY SYSTEM</h3>
+                                <p class="card-text text-muted text-center small flex-grow-1">Efficiently manage your properties and tenants with our robust system. From lease management to maintenance requests, we help you maximize your real estate investments.</p>
                             </div>
                         </div>
                     </div>
 
                     <!-- ITSM, ITAM & Unified Endpoint Management -->
-                    <div class="col-sm mb-4">
+                    <div class="col">
                         <div class="card h-100 solution-card">
                             <div class="card-body d-flex flex-column">
                                 <div class="image-container mb-3">
                                     <img src="assets/img/probes5.png" alt="Ivanti" class="card-img-top solution-image">
                                 </div>
-                                <div class="title-container mb-2">
-                                    <h3 class="card-title h5 text-center">ITSM, ITAM & UNIFIED ENDPOINT MANAGEMENT</h3>
-                                </div>
-                                <p class="card-text text-muted text-center small mt-auto">Optimize your IT operations with our integrated management solutions. From service management to asset tracking and endpoint security, we keep your technology running smoothly.</p>
+                                <h3 class="card-title h5 text-center mb-3">ITSM, ITAM & UNIFIED ENDPOINT MANAGEMENT</h3>
+                                <p class="card-text text-muted text-center small flex-grow-1">Optimize your IT operations with our integrated management solutions. From service management to asset tracking and endpoint security, we keep your technology running smoothly.</p>
                             </div>
                         </div>
                     </div>
 
                     <!-- ERP & EAM -->
-                    <div class="col-sm mb-4">
+                    <div class="col">
                         <div class="card h-100 solution-card">
                             <div class="card-body d-flex flex-column">
                                 <div class="image-container mb-3">
                                     <img src="assets/img/probes6.png" alt="BSI" class="card-img-top solution-image">
                                 </div>
-                                <div class="title-container mb-2">
-                                    <h3 class="card-title h5 text-center">ERP & EAM</h3>
-                                </div>
-                                <p class="card-text text-muted text-center small mt-auto">Integrate your business processes and asset management with our powerful ERP and EAM solutions. From finance to maintenance, we help you drive efficiency across your organization.</p>
+                                <h3 class="card-title h5 text-center mb-3">ERP & EAM</h3>
+                                <p class="card-text text-muted text-center small flex-grow-1">Integrate your business processes and asset management with our powerful ERP and EAM solutions. From finance to maintenance, we help you drive efficiency across your organization.</p>
                             </div>
                         </div>
                     </div>
@@ -1930,7 +1928,7 @@
                 transition: all 0.3s ease;
                 border: none;
                 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-                padding: 0px !important;
+                height: 100%;
             }
 
             .solution-card:hover {
@@ -1946,27 +1944,20 @@
             }
 
             .solution-image {
-                max-width: 85%;
+                max-width: 80%;
                 max-height: 100%;
                 object-fit: contain;
-            }
-
-            .title-container {
-                min-height: 40px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
             }
 
             .card-title {
                 font-family: 'Proxima Nova', sans-serif;
                 font-weight: 700;
                 font-size: 1rem;
-                margin-bottom: 0.8rem;
-                text-align: center;
-                display: -webkit-box;
-                overflow-wrap: break-word;
-                word-break: break-word;
+                line-height: 1.2;
+                min-height: 2.4em;
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
 
             .card-text {
@@ -1975,52 +1966,36 @@
                 font-size: 0.9rem;
             }
 
+            @media (max-width: 991px) {
+                .container {
+                    max-width: 90%;
+                }
+            }
+
             @media (max-width: 768px) {
                 .solution-title {
                     font-size: 1.8rem;
                 }
 
                 .solution-subtitle {
-                    font-size: 14px !important;
-                }
-
-                .image-container {
-                    min-height: 70px;
-                }
-
-                .solution-image {
-                    max-height: 70px;
+                    font-size: 1rem;
                 }
 
                 .card-title {
                     font-size: 0.9rem;
+                    min-height: 2.7em;
                 }
 
                 .card-text {
-                    font-size: 0.75rem;
-                    white-space: normal;
-                    word-wrap: break-word;
+                    font-size: 0.8rem;
                 }
-            }
 
-            @media (max-width: 575px) {
                 .solution-card {
                     margin-bottom: 1rem;
                 }
 
                 .image-container {
-                    min-height: 60px;
-                }
-
-                .solution-image {
-                    max-height: 60px;
-                }
-            }
-
-            @media (min-width: 992px) {
-                .solution-card {
-                    max-width: 300px;
-                    margin: 0 auto;
+                    height: 100px;
                 }
             }
         </style>
@@ -2423,7 +2398,7 @@
 
         <!-- BLOG -->
         <section id="blog" class="py-5">
-            <div class="container py-4">
+            <div class="container p-4">
                 <div class="blog-header text-center">
                     <h1 style="font-weight: bolder; font-size: 48px;">Blog</h1>
                     <p class="">Stay informed and inspired with our latest articles covering a wide range of topics from
@@ -2442,7 +2417,7 @@
 
 
         <section id="qa" class="py-5 position-relative">
-            <div class="container py-4">
+            <div class="container p-4">
                 <div class="row">
                     <div class="col-lg-12 text-center mb-4">
                         <h1 class="faq-title" style="font-weight: bolder; font-size: 48px;">Q&A</h1>
@@ -2539,7 +2514,7 @@
 
 
         <section id="separator" class="py-0">
-            <div class="container py-1">
+            <div class="container p-4">
                 <div class="banner">
                     <div class="banner-content">
                         <h2>Unlock superior coverage for your team</h2>
@@ -2553,7 +2528,7 @@
 
 
         <section id="contact" class="py-2 px-0">
-            <div class="container" style="padding-bottom: 0;">
+            <div class="container p-4">
                 <div class="row justify-content-between">
                     <div id="contact-info" class="col-lg-5 left-column p-4 p-md-5">
                         <h1 class="mb-3 contact-heading">What Are You Waiting For?<br>Just Make It Happen!</h1>
