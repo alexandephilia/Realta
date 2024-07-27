@@ -41,13 +41,13 @@ h1, h2, h3, h4, h5, h6 {
 
 
 
-
+/* Featured blog card */
 .custom-blog-card {
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   background-color: #fff;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
 }
 
 .custom-blog-card:hover {
@@ -95,6 +95,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 0.9rem;
   color: #666;
   margin-bottom: 1rem;
+  transition: color 0.3s ease;
 }
 
 .custom-blog-card__footer {
@@ -119,6 +120,7 @@ h1, h2, h3, h4, h5, h6 {
 .custom-blog-card__author-name {
   font-size: 0.8rem;
   color: #888;
+  transition: color 0.3s ease;
 }
 
 .custom-blog-card__read-more {
@@ -126,8 +128,47 @@ h1, h2, h3, h4, h5, h6 {
   color: #007bff;
   text-decoration: none;
   font-weight: 500;
+  transition: color 0.3s ease;
 }
 
 .custom-blog-card__read-more:hover {
   text-decoration: underline;
+}
+
+/* Dark mode styles */
+@media (prefers-color-scheme: dark) {
+  .custom-blog-card {
+    background-color: #261a3c;
+    /* box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1); */
+  }
+
+  .custom-blog-card__text {
+    color: #ccc;
+  }
+
+  .custom-blog-card__author-name {
+    color: #aaa;
+  }
+
+  .custom-blog-card__read-more {
+    color: #4da3ff;
+  }
+}
+
+/* For browsers that don't support prefers-color-scheme */
+.dark-mode .custom-blog-card {
+  background-color: #261a3c;
+  box-shadow: 0 4px 6px rgba(17, 17, 17, 0.5);
+}
+
+.dark-mode .custom-blog-card__text {
+  color: #ccc;
+}
+
+.dark-mode .custom-blog-card__author-name {
+  color: #aaa;
+}
+
+.dark-mode .custom-blog-card__read-more {
+  color: #4da3ff;
 }
