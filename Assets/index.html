@@ -1943,20 +1943,20 @@
             }
 
             .image-container {
-                height: 100px;
+                height: 120px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
             }
 
             .solution-image {
-                max-width: 80%;
+                max-width: 85%;
                 max-height: 100%;
                 object-fit: contain;
             }
 
             .title-container {
-                min-height: 50px;
+                min-height: 40px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -1965,9 +1965,9 @@
             .card-title {
                 font-family: 'Proxima Nova', sans-serif;
                 font-weight: 700;
-                font-size: 1.1 rem;
-                margin-bottom: 1 rem;
-                text-align: left;
+                font-size: 1rem;
+                margin-bottom: 0.8rem;
+                text-align: center;
                 display: -webkit-box;
                 overflow-wrap: break-word;
                 word-break: break-word;
@@ -1981,35 +1981,11 @@
 
             @media (max-width: 767px) {
                 .solution-title {
-                    font-size: 2rem;
+                    font-size: 1.8rem;
                 }
 
                 .solution-subtitle {
-                    font-size: 1rem;
-                }
-
-                .image-container {
-                    min-height: 80px;
-                }
-
-                .solution-image {
-                    max-height: 80px;
-                }
-
-                .card-title {
-                    font-size: 1.1 rem;
-                }
-
-                .card-text {
-                    font-size: 0.85rem;
-                    white-space: normal;
-                    word-wrap: break-word;
-                }
-            }
-
-            @media (max-width: 575px) {
-                .solution-card {
-                    margin-bottom: 1.5rem;
+                    font-size: 0.9rem;
                 }
 
                 .image-container {
@@ -2018,6 +1994,37 @@
 
                 .solution-image {
                     max-height: 70px;
+                }
+
+                .card-title {
+                    font-size: 0.9rem;
+                }
+
+                .card-text {
+                    font-size: 0.75rem;
+                    white-space: normal;
+                    word-wrap: break-word;
+                }
+            }
+
+            @media (max-width: 575px) {
+                .solution-card {
+                    margin-bottom: 1rem;
+                }
+
+                .image-container {
+                    min-height: 60px;
+                }
+
+                .solution-image {
+                    max-height: 60px;
+                }
+            }
+
+            @media (min-width: 992px) {
+                .solution-card {
+                    max-width: 300px;
+                    margin: 0 auto;
                 }
             }
         </style>
