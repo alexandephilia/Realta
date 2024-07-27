@@ -714,8 +714,8 @@
 
         <section id="home" style="margin-bottom: 0; position: relative; overflow: hidden;">
             <div class="circle-blur"></div>
-            <div id="container-header" class="container py-5">
-                <div id="container-headerin" class="container-fluid container-lg">
+            <div id="container-header" class="container-fluid">
+                <div id="container-headerin" class="container-fluid container-xl">
                     <!-- Carousel Start -->
                     <div id="businessCarousel" class="carousel slide custom-carousel" data-bs-ride="carousel">
                         <!-- Indicators -->
@@ -731,8 +731,7 @@
                             <div class="carousel-item active">
                                 <div class="row gy-5 align-items-center">
                                     <!-- Left Column -->
-                                    <div
-                                        class="col-lg-7 d-flex flex-column justify-content-center align-items-start text-lg-start p-4 p-lg-5">
+                                    <div class="col-lg-7 d-flex flex-column justify-content-center align-items-start text-lg-start p-4 p-lg-5">
                                         <div class="mb-4">
                                             <div class="logo-text">
                                                 <p>
@@ -865,7 +864,7 @@
 
             .logo-text p {
                 margin: 0;
-                font-size: 0.8rem;
+                font-size: 1.0vw; /* Responsive font size */
                 display: flex;
                 align-items: center;
             }
@@ -928,25 +927,28 @@
             /* Desktop styles */
             @media (min-width: 992px) {
                 .display-3 {
-                    font-size: 45px;
+                    font-size: 3.5vw; /* Responsive font size */
                     line-height: 1.2;
-                    margin-bottom: 20px;
+                    margin-bottom: 2vh; /* Responsive margin */
                 }
 
                 .dynamic-text-container-1,
                 .dynamic-text-container-2,
                 .dynamic-text-container {
-                    font-size: 45px;
+                    font-size: 3.5vw; /* Match display-3 size */
                 }
 
                 .lead {
-                    margin-top: 15px;
-                    margin-bottom: 25px;
+                    font-size: 1.8vw; /* Responsive font size */
+                    margin-top: 2vh;
+                    margin-bottom: 3vh;
                     line-height: 1.6;
                 }
 
                 .btn-custom {
-                    margin-top: 10px;
+                    margin-top: 2vh;
+                    font-size: 0.9vw; /* Smaller button text */
+                    padding: 0.8vh 1.5vw; /* Reduced padding */
                 }
             }
 
@@ -967,6 +969,13 @@
 
             /* Mobile styles */
             @media (max-width: 767px) {
+                .logo-text p {
+                margin: 0;
+                font-size: 2.5vw; /* Responsive font size */
+                display: flex;
+                align-items: center;
+            }
+
                 .logo-text {
                     font-size: 12px !important;
                     padding: 8px 12px;
