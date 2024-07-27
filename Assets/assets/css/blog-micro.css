@@ -38,9 +38,6 @@ h1, h2, h3, h4, h5, h6 {
   color: #727272;
 }
 
-
-
-
 /* Featured blog card */
 .custom-blog-card {
   border-radius: 8px !important;
@@ -164,6 +161,42 @@ h1, h2, h3, h4, h5, h6 {
 
 .custom-blog-card__read-more:hover {
   text-decoration: underline !important;
+}
+
+/* Light mode styles */
+@media (prefers-color-scheme: light) {
+  .custom-blog-card {
+    background-color: #fff !important;
+  }
+
+  .custom-blog-card__text {
+    color: #666 !important;
+  }
+
+  .custom-blog-card__author-name {
+    color: #888 !important;
+  }
+
+  .custom-blog-card__read-more {
+    color: #007bff !important;
+  }
+}
+
+/* Explicit light mode class */
+.light-mode .custom-blog-card {
+  background-color: #fff !important;
+}
+
+.light-mode .custom-blog-card__text {
+  color: #666 !important;
+}
+
+.light-mode .custom-blog-card__author-name {
+  color: #888 !important;
+}
+
+.light-mode .custom-blog-card__read-more {
+  color: #007bff !important;
 }
 
 /* Dark mode styles */
