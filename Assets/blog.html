@@ -19,7 +19,10 @@
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/css/navbar.css">
   <link rel="stylesheet" href="assets/css/blog.css">
+  <link rel="stylesheet" href="assets/css/mobilenav.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
   <link rel="stylesheet" href="assets/css/blog-micro.css">
+
 
 
 
@@ -105,6 +108,7 @@
     vertical-align: -.125em;
     fill: currentColor;
   }
+  
 
 
   .btn-bd-primary {
@@ -238,135 +242,493 @@
     }
   </script>
   <!-- LOADING -->
-  <header">
-    <nav class="navbar navbar-expand-lg navbar-shrink navbar-light" id="mainNav">
-      <div class="container-fluid container-lg px-3">
-        <a class="navbar-logo d-flex align-items-center" href="#"
-          onclick="navigateWithLoading('index.html'); return false;">
-          <img src="assets/img/realta.png" alt="Realta Logo" style="width: 150px; height: 50%; padding: 5px;">
-        </a>
-        <div class="navbar-mobile-actions">
-          <button id="darkModeToggleNav" class="btn-custom download-btn ms-2"
-            style="border: none; min-width: fit-content; margin-right: 1.5rem;">
-            <i class="fas fa-moon"></i>
-          </button>
-          <div class="nav-toggle">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </div>
+  <header>
 
-        <div class="full-screen-sidebar">
-          <ul class="sidebar-nav d-flex justify-content-end align-items-center"
-            style="padding: 0; margin: 0; list-style-type: none; font-family: 'Proxima Nova', sans-serif;">
-            <li class="nav-item me-4"><a class="nav-link dropdown-toggle d-flex align-items-center" href="#"
-                id="solutionsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Solusi <i class="fas fa-chevron-down ms-2 fa-xs"></i>
-              </a></li>
-            <li class="nav-item me-4"><a class="nav-link dropdown-toggle d-flex align-items-center" href="#"
-                id="industriDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Industri <i class="fas fa-chevron-down ms-2 fa-xs"></i>
-              </a></li>
-            <li class="nav-item me-4"><a class="nav-link dropdown-toggle d-flex align-items-center" href="#"
-                id="partnerDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Partner <i class="fas fa-chevron-down ms-2 fa-xs"></i>
-              </a></li>
-            <li class="nav-item me-4"><a class="nav-link dropdown-toggle d-flex align-items-center" href="#"
-                id="konsultasiDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Konsultasi <i class="fas fa-chevron-down ms-2 fa-xs"></i>
-              </a></li>
-            <li class="nav-item"><a class="nav-link dropdown-toggle d-flex align-items-center" href="#"
-                id="tentangRealtaDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Tentang Realta <i class="fas fa-chevron-down ms-2 fa-xs"></i>
-              </a></li>
-          </ul>
-          <div class="sidebar-actions d-flex justify-content-end align-items-center"
-            style="margin-top: 1rem; margin-bottom: 1.1rem;">
-            <button id="darkModeToggleSidebar" class="btn-custom ms-2">
-              <i class="fas fa-moon"></i>
-            </button>
-            <div class="dropdown">
-              <button id="languageSwitch" class="btn-custom ms-2 dropdown-toggle" type="button"
-                data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="fas fa-globe"></i>
-              </button>
-              <ul class="dropdown-menu glass-dropdown">
-                <li><a class="dropdown-item" href="#" data-lang="en">EN</a></li>
-                <li><a class="dropdown-item" href="#" data-lang="id">ID</a></li>
-              </ul>
+    <nav class="navbar navbar-expand-lg sticky-top navbar-shrink navbar-light" id="mainNav">
+        <div class="container-fluid container-lg px-2">
+            <a class="navbar-logo d-flex align-items-center" href="/">
+                <img src="assets/img/realta.png" alt="Realta Logo" style="width: 140px; height: 50%; padding: 4px;">
+            </a>
+            <div class="navbar-mobile-actions">
+                <button id="darkModeToggleNav" class="btn-custom download-btn ms-1"
+                    style="border: none; min-width: fit-content; margin-right: 0.4rem;">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <!-- Language switch button -->
+                <!-- Language switch dropdown -->
+                <div class="custom-dropdown">
+                    <button id="languageSwitch" class="btn-custom download-btn ms-1" type="button"
+                        style="border: none; min-width: fit-content; margin-right: 1.4rem;">
+                        <i class="fas fa-globe"></i>
+                    </button>
+                    <ul class="custom-dropdown-menu">
+                        <li><a href="#" data-lang="en">EN</a></li>
+                        <li><a href="#" data-lang="id">ID</a></li>
+                    </ul>
+                </div>
+                <div class="nav-drawer" data-bs-toggle="offcanvas" data-bs-target="#sidebar"
+                    aria-controls="sidebar">
+                    <i class="fas fa-bars" style="font-size: 1.7rem;"></i>
+                </div>
             </div>
-          </div>
+            <!-- Mobile responsive navigation menu -->
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="sidebar" aria-labelledby="sidebarLabel">
+                <div class="offcanvas-header">
+                    <div>
+                        <h5 class="offcanvas-title" id="sidebarLabel"
+                            style="margin-left: 33px; margin-bottom: 20px; font-size: 30px;">Menu</h5>
+                    </div>
+                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <div class="sidebar-menu">
+                        <div class="sidebar-item">
+                            <h2 class="product-header" data-bs-toggle="collapse" data-bs-target="#productsSubmenu"
+                                aria-expanded="false">
+                                Products <i class="fas fa-chevron-right arrow-icon"></i>
+                            </h2>
+                            <div id="productsSubmenu" class="collapse">
+                                <ul class="product-list">
+                                    <li>
+                                        <div class="product-header" data-bs-toggle="collapse"
+                                            data-bs-target="#hmsSubmenu" aria-expanded="false"
+                                            style="font-size: 1rem; font-weight: 400;">
+                                            Hotel Management System <i class="fas fa-chevron-right arrow-icon"></i>
+                                        </div>
+                                        <div id="hmsSubmenu" class="collapse product-submenu">
+                                            <p>Comprehensive solution for efficient hotel operations and guest
+                                                management.</p>
+                                            <a href="#" class="discover-link">Discover HMS ›</a>
+                                            <h3 class="modules-heading">MODULES</h3>
+                                            <ul class="modules-list">
+                                                <li>
+                                                    <strong>Reservation Management</strong>
+                                                    <span>Streamline booking processes</span>
+                                                </li>
+                                                <li>
+                                                    <strong>Front Desk Operations</strong>
+                                                    <span>Efficient check-in and check-out</span>
+                                                </li>
+                                                <li>
+                                                    <strong>Housekeeping Management</strong>
+                                                    <span>Optimize room maintenance</span>
+                                                </li>
+                                                <li>
+                                                    <strong>Revenue Management</strong>
+                                                    <span>Maximize profitability</span>
+                                                </li>
+                                                <li>
+                                                    <strong>Guest Experience Management</strong>
+                                                    <span>Enhance customer satisfaction</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="product-header" data-bs-toggle="collapse"
+                                            data-bs-target="#gcsSubmenu" aria-expanded="false"
+                                            style="font-size: 1rem; font-weight: 400;">
+                                            Golf Course System <i class="fas fa-chevron-right arrow-icon"></i>
+                                        </div>
+                                        <div id="gcsSubmenu" class="collapse product-submenu">
+                                            <p>Integrated system for efficient golf course management and
+                                                operations.</p>
+                                            <a href="#" class="discover-link">Discover GCS ›</a>
+                                            <h3 class="modules-heading">MODULES</h3>
+                                            <ul class="modules-list">
+                                                <li>
+                                                    <strong>Tee Time Management</strong>
+                                                    <span>Optimize scheduling and bookings</span>
+                                                </li>
+                                                <li>
+                                                    <strong>Member Management</strong>
+                                                    <span>Streamline membership processes</span>
+                                                </li>
+                                                <li>
+                                                    <strong>Pro Shop Management</strong>
+                                                    <span>Inventory and sales management</span>
+                                                </li>
+                                                <li>
+                                                    <strong>Tournament Management</strong>
+                                                    <span>Organize and manage events</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="product-header" data-bs-toggle="collapse"
+                                            data-bs-target="#hrSystemSubmenu" aria-expanded="false"
+                                            style="font-size: 1rem; font-weight: 400;">
+                                            HR System <i class="fas fa-chevron-right arrow-icon"></i>
+                                        </div>
+                                        <div id="hrSystemSubmenu" class="collapse product-submenu">
+                                            <p>Comprehensive human resource management solution for businesses of
+                                                all sizes.</p>
+                                            <a href="#" class <div id="container-header"
+                                                class="container py-5">discover-link">Discover HR System ›</a>
+                                            <h3 class="modules-heading">MODULES</h3>
+                                            <ul class="modules-list">
+                                                <li>
+                                                    <strong>Employee Management</strong>
+                                                    <span>Centralize employee data and records</span>
+                                                </li>
+                                                <li>
+                                                    <strong>Payroll Processing</strong>
+                                                    <span>Automate salary calculations and payments</span>
+                                                </li>
+                                                <li>
+                                                    <strong>Time and Attendance</strong>
+                                                    <span>Track employee work hours and absences</span>
+                                                </li>
+                                                <li>
+                                                    <strong>Performance Management</strong>
+                                                    <span>Set goals and conduct evaluations</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="product-header" data-bs-toggle="collapse"
+                                            data-bs-target="#propertyTenantSubmenu" aria-expanded="false"
+                                            style="font-size: 1rem; font-weight: 400;">
+                                            Property and Tenant System <i
+                                                class="fas fa-chevron-right arrow-icon"></i>
+                                        </div>
+                                        <div id="propertyTenantSubmenu" class="collapse product-submenu">
+                                            <p>Efficient management solution for property owners and landlords.</p>
+                                            <a href="#" class="discover-link">Discover Property and Tenant System
+                                                ›</a>
+                                            <h3 class="modules-heading">MODULES</h3>
+                                            <ul class="modules-list">
+                                                <li>
+                                                    <strong>Property Management</strong>
+                                                    <span>Organize and track property details</span>
+                                                </li>
+                                                <li>
+                                                    <strong>Tenant Management</strong>
+                                                    <span>Manage tenant information and leases</span>
+                                                </li>
+                                                <li>
+                                                    <strong>Rent Collection</strong>
+                                                    <span>Automate rent payments and tracking</span>
+                                                </li>
+                                                <li>
+                                                    <strong>Maintenance Requests</strong>
+                                                    <span>Handle and track property maintenance</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="product-header" data-bs-toggle="collapse"
+                                            data-bs-target="#itsmSubmenu" aria-expanded="false"
+                                            style="font-size: 1rem; font-weight: 400;">
+                                            ITSM, ITAM & Unified Endpoint Management <i
+                                                class="fas fa-chevron-right arrow-icon"></i>
+                                        </div>
+                                        <div id="itsmSubmenu" class="collapse product-submenu">
+                                            <p>Comprehensive IT Service Management solution for streamlined IT
+                                                operations.</p>
+                                            <a href="#" class="discover-link">Discover ITSM, ITAM & Unified Endpoint
+                                                Management ›</a>
+                                            <h3 class="modules-heading">MODULES</h3>
+                                            <ul class="modules-list">
+                                                <li>
+                                                    <strong>Incident Management</strong>
+                                                    <span>Efficiently handle and resolve IT issues</span>
+                                                </li>
+                                                <li>
+                                                    <strong>Change Management</strong>
+                                                    <span>Control and implement IT changes</span>
+                                                </li>
+                                                <li>
+                                                    <strong>Asset Management</strong>
+                                                    <span>Track and manage IT assets</span>
+                                                </li>
+                                                <li>
+                                                    <strong>Service Catalog</strong>
+                                                    <span>Organize and offer IT services</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="product-header" data-bs-toggle="collapse"
+                                            data-bs-target="#erpSubmenu" aria-expanded="false"
+                                            style="font-size: 1rem; font-weight: 400;">
+                                            ERP & EAM <i class="fas fa-chevron-right arrow-icon"></i>
+                                        </div>
+                                        <div id="erpSubmenu" class="collapse product-submenu">
+                                            <p>Integrated Enterprise Resource Planning solution for business
+                                                management.</p>
+                                            <a href="#" class="discover-link">Discover ERP & EAM ›</a>
+                                            <h3 class="modules-heading">MODULES</h3>
+                                            <ul class="modules-list">
+                                                <li>
+                                                    <strong>Financial Management</strong>
+                                                    <span>Manage accounting and finances</span>
+                                                </li>
+                                                <li>
+                                                    <strong>Supply Chain Management</strong>
+                                                    <span>Optimize procurement and logistics</span>
+                                                </li>
+                                                <li>
+                                                    <strong>Manufacturing</strong>
+                                                    <span>Streamline production processes</span>
+                                                </li>
+                                                <li>
+                                                    <strong>Customer Relationship Management</strong>
+                                                    <span>Enhance customer interactions</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="sidebar-item">
+                            <h2 class="product-header" data-bs-toggle="collapse" data-bs-target="#resourcesSubmenu"
+                                aria-expanded="false style=" font-size: 1.1rem;"">
+                                Resources <i class="fas fa-chevron-right arrow-icon"></i>
+                            </h2>
+                            <div id="resourcesSubmenu" class="collapse">
+                                <ul class="submenu-list">
+                                    <li><a href="#">Blog</a></li>
+                                    <li><a href="#">Webinars</a></li>
+                                    <li><a href="#">White Papers</a></li>
+                                    <li><a href="#">Case Studies</a></li>
+                                    <li><a href="#">eBooks</a></li>
+                                    <li><a href="#">Product Videos</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="sidebar-item">
+                            <h2 class="product-header" data-bs-toggle="collapse" data-bs-target="#partnersSubmenu"
+                                aria-expanded="false">
+                                Partners <i class="fas fa-chevron-right arrow-icon"></i>
+                            </h2>
+                            <div id="partnersSubmenu" class="collapse">
+                                <!-- Add partners submenu content here -->
+                            </div>
+                        </div>
+                        <div class="sidebar-item">
+                            <h2 class="product-header" data-bs-toggle="collapse" data-bs-target="#companySubmenu"
+                                aria-expanded="false">
+                                Company <i class="fas fa-chevron-right arrow-icon"></i>
+                            </h2>
+                            <div id="companySubmenu" class="collapse">
+                                <ul class="submenu-list">
+                                    <li><a href="#">About Us</a></li>
+                                    <li><a href="#">Our Team</a></li>
+                                    <li><a href="#">Careers</a></li>
+                                    <li><a href="#">News</a></li>
+                                    <li><a href="#">Contact</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="sidebar-item">
+                            <h2 class="product-header">
+                                <a href="#" onclick="navigateWithLoading('blog.html'); return false;"
+                                    style="text-decoration: none; color: inherit;">Blog</a>
+                            </h2>
+                        </div>
+                    </div>
+                    <div class="get-started-container">
+                        <a href="https://api.whatsapp.com/send?phone=628111221789&text=Hallo%20PT%20Realta..."
+                            target="_blank" rel="noopener noreferrer" class="btn btn-success btn-block"
+                            style="width: 100%;">
+                            <i class="fab fa-whatsapp"></i> Contact Us
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <style>
+                @media (min-width: 992px) {
+                    #sidebar {
+                        display: none !important;
+                    }
+
+                    .offcanvas-backdrop {
+                        display: none !important;
+                    }
+
+                    body {
+                        overflow: auto !important;
+                        padding-right: 0 !important;
+                    }
+                }
+            </style>
+
+
+            <style>
+                .custom-dropdown {
+                    position: relative;
+                    display: inline-block;
+                }
+
+                .custom-dropdown-menu {
+                    display: none;
+                    position: absolute;
+                    top: 69%;
+                    right: 5%;
+                    /* Changed from -10% to -5% to move slightly to the left */
+                    background: rgba(179, 179, 179, 0.137);
+                    backdrop-filter: blur(10px);
+                    border-radius: 10px;
+                    width: 80px;
+                    /* Further reduced width for an even smaller dropdown */
+                    z-index: 1000;
+                    list-style-type: none;
+                    padding: 0.25rem 0;
+                    /* Reduced padding for a smaller dropdown */
+                    margin: 0.5rem 0 0 0;
+                    border: 1px solid rgba(255, 255, 255, 0.18);
+                }
+
+                .custom-dropdown-menu li {
+                    padding: 0.2rem 0;
+                    /* Reduced padding for smaller items */
+                    text-align: center;
+                    /* Centered text */
+                }
+
+                .custom-dropdown-menu li a {
+                    color: #333;
+                    padding: 0.3rem 0.3rem;
+                    /* Adjusted padding for better alignment */
+                    text-decoration: none;
+                    display: block;
+                    font-size: 0.8rem;
+                    /* Reduced font size for smaller dropdown */
+                    transition: background-color 0.3s ease;
+                }
+
+                .custom-dropdown-menu li a:hover {
+                    background-color: rgba(126, 126, 126, 0.5);
+                    color: #fff;
+                    /* Change text color on hover */
+                    transform: scale(1.05);
+                    /* Slightly enlarge the item */
+                    border-radius: 10px;
+                    /* Added border radius for hover background */
+                    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+                    /* Smooth transition */
+                }
+
+                .custom-dropdown:hover .custom-dropdown-menu {
+                    display: block;
+
+                }
+            </style>
+            <div class="full-screen-sidebar">
+                <ul class="sidebar-nav d-flex justify-content-end align-items-center"
+                    style="padding: 0; margin: 0; list-style-type: none;">
+
+                    <li class="me-1"><a class="nav-link dropdown-toggle" href="#" id="solutionsDropdown"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Solusi <i class="fas fa-chevron-down ms-1 fa-xs"></i>
+                        </a></li>
+                    <li class="me-1"><a class="nav-link dropdown-toggle" href="#" id="industriDropdown"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Industri <i class="fas fa-chevron-down ms-1 fa-xs"></i>
+                        </a></li>
+                    <li class="me-1"><a class="nav-link dropdown-toggle" href="#" id="partnerDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Partner <i class="fas fa-chevron-down ms-1 fa-xs"></i>
+                        </a></li>
+                    <li class="me-1"><a class="nav-link dropdown-toggle" href="#" id="konsultasiDropdown"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Konsultasi <i class="fas fa-chevron-down ms-1 fa-xs"></i>
+                        </a></li>
+                    <li><a class="nav-link dropdown-toggle" href="#" id="tentangRealtaDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Tentang Realta <i class="fas fa-chevron-down ms-1 fa-xs"></i>
+                        </a></li>
+                </ul>
+                <div class="sidebar-actions d-flex justify-content-end align-items-center"
+                    style="margin-bottom: 1.1rem;">
+                    <a class="btn-custom whatsapp-btn me-2"
+                        href="https://api.whatsapp.com/send?phone=628111221789&text=Hallo%20PT%20Realta..."
+                        target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-whatsapp"></i>
+                        <span><strong>Whatsapp</strong></span>
+                    </a>
+                    <button id="darkModeToggleSidebar" class="btn-custom ms-2">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="mega-dropdown" id="solutionsDropdownContent">
-        <div class="dropdown-content">
-          <div class="product-categories">
-            <div class="product-category active" data-product="hms">Hotel Management System</div>
-            <div class="product-category" data-product="gcs">Golf Course System</div>
-            <div class="product-category" data-product="hrs">HR System</div>
-            <div class="product-category" data-product="pts">Property & Tenancy System</div>
-            <div class="product-category" data-product="itm">ITSM, ITAM & Unified Endpoint Management</div>
-            <div class="product-category" data-product="erp">ERP & EAM</div>
-            <div class="all-products">All products ›</div>
-          </div>
-          <div class="product-details" id="product-details">
-            <!-- Content will be dynamically updated here -->
-          </div>
+        <div class="mega-dropdown" id="solutionsDropdownContent">
+            <div class="dropdown-content">
+                <div class="product-categories">
+                    <div class="product-category active" data-product="hms">Hotel Management System</div>
+                    <div class="product-category" data-product="gcs">Golf Course System</div>
+                    <div class="product-category" data-product="hrs">HR System</div>
+                    <div class="product-category" data-product="pts">Property & Tenancy System</div>
+                    <div class="product-category" data-product="itm">ITSM, ITAM & Unified Endpoint Management</div>
+                    <div class="product-category" data-product="erp">ERP & EAM</div>
+                    <div class="all-products">All products ›</div>
+                </div>
+                <div class="product-details" id="product-details">
+                    <!-- Content will be dynamically updated here -->
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="mega-dropdown" id="industriDropdownContent">
-        <div class="dropdown-content">
-          <div class="product-categories">
-            <div class="product-category active" data-product="manufacturing">Manufacturing</div>
-            <div class="product-category" data-product="healthcare">Healthcare</div>
-            <div class="product-category" data-product="retail">Retail</div>
-            <div class="all-products">All industries ›</div>
-          </div>
-          <div class="product-details" id="industri-details">
-            <!-- Content will be dynamically updated here -->
-          </div>
+        <div class="mega-dropdown" id="industriDropdownContent">
+            <div class="dropdown-content">
+                <div class="product-categories">
+                    <div class="product-category active" data-product="manufacturing">Manufacturing</div>
+                    <div class="product-category" data-product="healthcare">Healthcare</div>
+                    <div class="product-category" data-product="retail">Retail</div>
+                    <div class="all-products">All industries ›</div>
+                </div>
+                <div class="product-details" id="industri-details">
+                    <!-- Content will be dynamically updated here -->
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="mega-dropdown" id="partnerDropdownContent">
-        <div class="dropdown-content">
-          <div class="product-categories">
-            <div class="product-category active" data-product="reseller">Reseller Program</div>
-            <div class="product-category" data-product="technology">Technology Partners</div>
-            <div class="all-products">All partners ›</div>
-          </div>
-          <div class="product-details" id="partner-details">
-            <!-- Content will be dynamically updated here -->
-          </div>
+        <div class="mega-dropdown" id="partnerDropdownContent">
+            <div class="dropdown-content">
+                <div class="product-categories">
+                    <div class="product-category active" data-product="reseller">Reseller Program</div>
+                    <div class="product-category" data-product="technology">Technology Partners</div>
+                    <div class="all-products">All partners ›</div>
+                </div>
+                <div class="product-details" id="partner-details">
+                    <!-- Content will be dynamically updated here -->
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="mega-dropdown" id="konsultasiDropdownContent">
-        <div class="dropdown-content">
-          <div class="product-categories">
-            <div class="product-category active" data-product="business">Business Consultation</div>
-            <div class="product-category" data-product="technical">Technical Consultation</div>
-            <div class="all-products">All consultations ›</div>
-          </div>
-          <div class="product-details" id="konsultasi-details">
-            <!-- Content will be dynamically updated here -->
-          </div>
+        <div class="mega-dropdown" id="konsultasiDropdownContent">
+            <div class="dropdown-content">
+                <div class="product-categories">
+                    <div class="product-category active" data-product="business">Business Consultation</div>
+                    <div class="product-category" data-product="technical">Technical Consultation</div>
+                    <div class="all-products">All consultations ›</div>
+                </div>
+                <div class="product-details" id="konsultasi-details">
+                    <!-- Content will be dynamically updated here -->
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="mega-dropdown" id="tentangRealtaDropdownContent">
-        <div class="dropdown-content">
-          <div class="product-categories">
-            <div class="product-category active" data-product="about">About Us</div>
-            <div class="product-category" data-product="careers">Careers</div>
-            <div class="all-products">Learn more ›</div>
-          </div>
-          <div class="product-details" id="tentangRealta-details">
-            <!-- Content will be dynamically updated here -->
-          </div>
+        <div class="mega-dropdown" id="tentangRealtaDropdownContent">
+            <div class="dropdown-content">
+                <div class="product-categories">
+                    <div class="product-category active" data-product="about">About Us</div>
+                    <div class="product-category" data-product="careers">Careers</div>
+                    <div class="product-category" data-product="blog">Blog</div>
+                    <div class="all-products">Learn more ›</div>
+                </div>
+                <div class="product-details" id="tentangRealta-details">
+                    <!-- Content will be dynamically updated here -->
+                </div>
+            </div>
         </div>
-      </div>
     </nav>
-    </header>
+</header>
 
     <!-- BLOG SECTION -->
 
