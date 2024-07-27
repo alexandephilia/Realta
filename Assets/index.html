@@ -122,8 +122,20 @@
         <nav class="navbar navbar-expand-lg sticky-top navbar-shrink navbar-light" id="mainNav">
             <div class="container-fluid container-lg px-2">
                 <a class="navbar-logo d-flex align-items-center" href="/">
-                    <img src="assets/img/realta.png" alt="Realta Logo" style="width: 140px; height: 50%; margin-left: 10px;">
+                    <img src="assets/img/realta.png" alt="Realta Logo" class="realta-logo">
                 </a>
+                <style>
+                    .realta-logo {
+                        width: 140px;
+                        height: 50%;
+                    }
+
+                    @media (min-width: 992px) {
+                        .realta-logo {
+                            margin-left: 50px;
+                        }
+                    }
+                </style>
                 <div class="navbar-mobile-actions">
                     <button id="darkModeToggleNav" class="btn-custom download-btn ms-1"
                         style="border: none; min-width: fit-content; margin-right: 0.4rem;">
@@ -533,16 +545,16 @@
                         <button id="darkModeToggleSidebar" class="btn-custom ms-2">
                             <i class="fas fa-moon"></i>
                         </button>
-                          <div class="custom-dropdown">
-                    <button id="languageSwitch" class="btn-custom download-btn ms-1" type="button"
-                        style="border: none; min-width: fit-content; margin-right: 1.4rem;">
-                        <i class="fas fa-globe"></i>
-                    </button>
-                    <ul class="custom-dropdown-menu">
-                        <li><a href="#" data-lang="en">EN</a></li>
-                        <li><a href="#" data-lang="id">ID</a></li>
-                    </ul>
-                </div>
+                        <div class="custom-dropdown">
+                            <button id="languageSwitch" class="btn-custom download-btn ms-1" type="button"
+                                style="border: none; min-width: fit-content; margin-right: 1.4rem;">
+                                <i class="fas fa-globe"></i>
+                            </button>
+                            <ul class="custom-dropdown-menu">
+                                <li><a href="#" data-lang="en">EN</a></li>
+                                <li><a href="#" data-lang="id">ID</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -717,6 +729,66 @@
             <div id="container-header" class="container-fluid">
                 <div id="container-headerin" class="container-fluid container-xl">
                     <!-- Carousel Start -->
+                    <style>
+                        @keyframes fadeInRight {
+                            from {
+                                opacity: 0;
+                                transform: translate3d(100%, 0, 0);
+                            }
+
+                            to {
+                                opacity: 1;
+                                transform: translate3d(0, 0, 0);
+                            }
+                        }
+
+                        @keyframes fadeOutLeft {
+                            from {
+                                opacity: 1;
+                            }
+
+                            to {
+                                opacity: 0;
+                                transform: translate3d(-100%, 0, 0);
+                            }
+                        }
+
+                        .carousel-item {
+                            display: block;
+                            position: absolute;
+                            opacity: 0;
+                            right: 0;
+                            transition: none;
+                        }
+
+                        .carousel-item.active {
+                            position: relative;
+                            opacity: 1;
+                            animation: fadeInRight 0.6s;
+                        }
+
+                        .carousel-item-next.carousel-item-start,
+                        .carousel-item-prev.carousel-item-end {
+                            position: relative;
+                            transform: translate3d(0, 0, 0);
+                        }
+
+                        .carousel-item-next.carousel-item-start {
+                            animation: fadeInRight 0.6s;
+                        }
+
+                        .carousel-item-prev.carousel-item-end {
+                            animation: fadeInRight 0.6s reverse;
+                        }
+
+                        .carousel-item-next,
+                        .carousel-item-prev {
+                            position: absolute;
+                            top: 0;
+                            animation: fadeOutLeft 0.6s;
+                        }
+                    </style>
+
                     <div id="businessCarousel" class="carousel slide custom-carousel" data-bs-ride="carousel">
                         <!-- Indicators -->
                         <div class="carousel-indicators">
@@ -731,7 +803,8 @@
                             <div class="carousel-item active">
                                 <div class="row gy-5 align-items-center">
                                     <!-- Left Column -->
-                                    <div class="col-lg-7 d-flex flex-column justify-content-center align-items-start text-lg-start p-4 p-lg-5">
+                                    <div
+                                        class="col-lg-7 d-flex flex-column justify-content-center align-items-start text-lg-start p-4 p-lg-5">
                                         <div class="mb-4">
                                             <div class="logo-text">
                                                 <p>
@@ -751,46 +824,49 @@
                                         </a>
                                         <!-- stacked -->
                                         <div class="stacked-avatars">
-                                        <img src="assets/img/team/avatar2.jpg" alt="Avatar 1" class="avatar">
-                                        <img src="assets/img/team/avatar5.jpg" alt="Avatar 1" class="avatar">
-                                        <img src="assets/img/team/avatar4.jpg" alt="Avatar 1" class="avatar">
+                                            <img src="assets/img/team/avatar2.jpg" alt="Avatar 1" class="avatar">
+                                            <img src="assets/img/team/avatar5.jpg" alt="Avatar 1" class="avatar">
+                                            <img src="assets/img/team/avatar4.jpg" alt="Avatar 1" class="avatar">
                                         </div>
                                         <div class="rating">
-                                        <span class="stars">★★★★★</span>
-                                        <span class="text">Trusted by 1 Million users</span>
+                                            <span class="stars">★★★★★</span>
+                                            <span class="text">Trusted by 1 Million users</span>
                                         </div>
                                     </div>
 
-                                     <style>
+                                    <style>
                                         .stacked-avatars {
-                                                display: flex;
-                                                align-items: center;
-                                                margin-top: 25px;
-                                                }
 
-                                                .avatar {
-                                                width: 45px;
-                                                height: 45px;
-                                                border-radius: 50%;
-                                                border: 2px solid #fff;
-                                                margin-right: -10px; /* Negative margin for overlap */
-                                                }
+                                            display: flex;
+                                            align-items: center;
+                                            margin-top: 25px;
+                                        }
 
-                                                .rating {
-                                                margin-top: 3px;
-                                                margin-left: 16px;
-                                                }
+                                        .avatar {
+                                            width: 45px;
+                                            height: 45px;
+                                            border-radius: 50%;
+                                            border: 2px solid #fff;
+                                            margin-right: -10px;
+                                            /* Negative margin for overlap */
+                                        }
 
-                                                .stars {
-                                                color: #ffd700; /* Gold color for stars */
-                                                margin-right: 5px;
-                                                }
+                                        .rating {
+                                            margin-top: 3px;
+                                            margin-left: 16px;
+                                        }
 
-                                                .text {
-                                                font-size: 16px;
-                                                color: #666;
-                                                }
-                                     </style>
+                                        .stars {
+                                            color: #ffd700;
+                                            /* Gold color for stars */
+                                            margin-right: 5px;
+                                        }
+
+                                        .text {
+                                            font-size: 16px;
+                                            color: #666;
+                                        }
+                                    </style>
                                     <!-- Right Column -->
                                     <div class="col-lg-5 d-flex justify-content-center align-items-center">
                                         <div class="tilt-container">
@@ -864,10 +940,12 @@
 
             .logo-text p {
                 margin: 0;
-                font-size: 1.0vw; /* Responsive font size */
+                font-size: 1.0vw;
+                /* Responsive font size */
                 display: flex;
                 align-items: center;
             }
+
             .online-indicator {
                 width: 8px;
                 height: 8px;
@@ -889,8 +967,8 @@
                     opacity: 0.5;
                 }
             }
-            
-            
+
+
             /* Dark mode styles */
             body.dark-mode .logo-text {
                 background-color: rgba(30, 30, 30, 0.452);
@@ -903,7 +981,8 @@
             }
 
             body.dark-mode .online-indicator {
-                background-color: #4CAF50; /* A brighter green for better visibility in dark mode */
+                background-color: #4CAF50;
+                /* A brighter green for better visibility in dark mode */
             }
 
             .gradient-text {
@@ -927,19 +1006,23 @@
             /* Desktop styles */
             @media (min-width: 992px) {
                 .display-3 {
-                    font-size: 3.5vw; /* Responsive font size */
+                    font-size: 3.5vw;
+                    /* Responsive font size */
                     line-height: 1.2;
-                    margin-bottom: 2vh; /* Responsive margin */
+                    margin-bottom: 2vh;
+                    /* Responsive margin */
                 }
 
                 .dynamic-text-container-1,
                 .dynamic-text-container-2,
                 .dynamic-text-container {
-                    font-size: 3.5vw; /* Match display-3 size */
+                    font-size: 3.5vw;
+                    /* Match display-3 size */
                 }
 
                 .lead {
-                    font-size: 1.8vw; /* Responsive font size */
+                    font-size: 1.8vw;
+                    /* Responsive font size */
                     margin-top: 2vh;
                     margin-bottom: 3vh;
                     line-height: 1.6;
@@ -947,8 +1030,10 @@
 
                 .btn-custom {
                     margin-top: 2vh;
-                    font-size: 0.9vw; /* Smaller button text */
-                    padding: 0.8vh 1.5vw; /* Reduced padding */
+                    font-size: 0.9vw;
+                    /* Smaller button text */
+                    padding: 0.8vh 1.5vw;
+                    /* Reduced padding */
                 }
             }
 
@@ -970,11 +1055,12 @@
             /* Mobile styles */
             @media (max-width: 767px) {
                 .logo-text p {
-                margin: 0;
-                font-size: 2.5vw; /* Responsive font size */
-                display: flex;
-                align-items: center;
-            }
+                    margin: 0;
+                    font-size: 2.5vw;
+                    /* Responsive font size */
+                    display: flex;
+                    align-items: center;
+                }
 
                 .logo-text {
                     font-size: 12px !important;
@@ -1078,7 +1164,7 @@
         </style>
 
         <section id="technology-delivery" class="clipped-section">
-            
+
             <style>
                 @media (max-width: 768px) {
                     .glass-text {
@@ -1815,49 +1901,49 @@
                 font-weight: bolder;
                 font-size: 2.5rem;
             }
-        
+
             .solution-subtitle {
                 font-size: 1.2rem;
             }
-        
+
             .gradient-text {
                 background: linear-gradient(90deg, #7209d4, #2832d4 33%, #00a5b2);
                 -webkit-background-clip: text;
                 background-clip: text;
                 color: transparent;
             }
-        
+
             .solution-card {
                 transition: all 0.3s ease;
                 border: none;
                 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             }
-        
+
             .solution-card:hover {
                 transform: translateY(-5px);
                 box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
             }
-        
+
             .image-container {
                 height: 100px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
             }
-        
+
             .solution-image {
                 max-width: 80%;
                 max-height: 100%;
                 object-fit: contain;
             }
-        
+
             .title-container {
                 min-height: 50px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
             }
-        
+
             .card-title {
                 font-family: 'Proxima Nova', sans-serif;
                 font-weight: 700;
@@ -1868,55 +1954,55 @@
                 overflow-wrap: break-word;
                 word-break: break-word;
             }
-        
+
             .card-text {
                 font-family: 'Proxima Nova', sans-serif;
                 font-weight: 400;
                 font-size: 0.8rem;
             }
-        
+
             @media (max-width: 767px) {
-        .solution-title {
-            font-size: 2rem;
-        }
+                .solution-title {
+                    font-size: 2rem;
+                }
 
-        .solution-subtitle {
-            font-size: 1rem;
-        }
+                .solution-subtitle {
+                    font-size: 1rem;
+                }
 
-        .image-container {
-            min-height: 80px;
-        }
+                .image-container {
+                    min-height: 80px;
+                }
 
-        .solution-image {
-            max-height: 80px;
-        }
+                .solution-image {
+                    max-height: 80px;
+                }
 
-        .card-title {
-            font-size: 1.1 rem;
-        }
+                .card-title {
+                    font-size: 1.1 rem;
+                }
 
-        .card-text {
-            font-size: 0.85rem;
-            white-space: normal;
-            word-wrap: break-word;
-        }
-    }
+                .card-text {
+                    font-size: 0.85rem;
+                    white-space: normal;
+                    word-wrap: break-word;
+                }
+            }
 
-    @media (max-width: 575px) {
-        .solution-card {
-            margin-bottom: 1.5rem;
-        }
+            @media (max-width: 575px) {
+                .solution-card {
+                    margin-bottom: 1.5rem;
+                }
 
-        .image-container {
-            min-height: 70px;
-        }
+                .image-container {
+                    min-height: 70px;
+                }
 
-        .solution-image {
-            max-height: 70px;
-        }
-    }
-</style>
+                .solution-image {
+                    max-height: 70px;
+                }
+            }
+        </style>
 
         <!-- TESTIMONIAL -->
         <div id="video-overlay" class="video-overlay">
