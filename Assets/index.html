@@ -1817,33 +1817,45 @@
             }
         
             @media (max-width: 767px) {
-                .solution-title {
-                    font-size: 2rem;
-                }
-        
-                .solution-subtitle {
-                    font-size: 1rem;
-                }
-        
-                .image-container {
-                    height: 80px;
-                }
-        
-                .card-title {
-                    font-size: 0.85rem;
-                }
-        
-                .card-text {
-                    font-size: 0.75rem;
-                }
-            }
-        
-            @media (max-width: 575px) {
-                .solution-card {
-                    margin-bottom: 1.5rem;
-                }
-            }
-        </style>
+        .solution-title {
+            font-size: 2rem;
+        }
+
+        .solution-subtitle {
+            font-size: 1rem;
+        }
+
+        .image-container {
+            min-height: 80px;
+        }
+
+        .solution-image {
+            max-height: 80px;
+        }
+
+        .card-title {
+            font-size: 0.85rem;
+        }
+
+        .card-text {
+            font-size: 0.75rem;
+        }
+    }
+
+    @media (max-width: 575px) {
+        .solution-card {
+            margin-bottom: 1.5rem;
+        }
+
+        .image-container {
+            min-height: 70px;
+        }
+
+        .solution-image {
+            max-height: 70px;
+        }
+    }
+</style>
 
         <!-- TESTIMONIAL -->
         <div id="video-overlay" class="video-overlay">
