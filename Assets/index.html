@@ -835,16 +835,44 @@
     
         /* Mobile styles */
         @media (max-width: 767px) {
-            .logo-text {
-                font-size: 12px !important;
-                padding-left: 8px;
-                padding-right: 8px;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                max-width: 100%;
-            }
+            :root {
+    --glass-background-light: rgba(255, 255, 255, 0.1);
+    --glass-border-light: rgba(255, 255, 255, 0.18);
+    --glass-shadow-light: rgba(31, 38, 135, 0.37);
+    --text-color-light: #333;
+    
+    --glass-background-dark: rgba(0, 0, 0, 0.3);
+    --glass-border-dark: rgba(255, 255, 255, 0.1);
+    --glass-shadow-dark: rgba(0, 0, 0, 0.5);
+    --text-color-dark: #fff;
+}
 
+.logo-text {
+    font-size: 12px !important;
+    padding: 8px 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    
+    /* Glass effect styles */
+    background-color: var(--glass-background-light);
+    color: var(--text-color-light);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* For Safari */
+    border-radius: 15px;
+    border: 1px solid var(--glass-border-light);
+    box-shadow: 0 8px 32px 0 var(--glass-shadow-light);
+    transition: all 0.3s ease;
+}
+
+/* Dark mode styles */
+.dark-mode .logo-text {
+    background-color: var(--glass-background-dark);
+    color: var(--text-color-dark);
+    border-color: var(--glass-border-dark);
+    box-shadow: 0 8px 32px 0 var(--glass-shadow-dark);
+}
             #container-header, #container-headerin {
                 padding: 0 !important;
                 width: 100% !important;
