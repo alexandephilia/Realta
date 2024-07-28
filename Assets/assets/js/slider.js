@@ -1,4 +1,6 @@
 
+
+
 // SLIDER
 function injectStyles() {
     const styleElement = document.createElement('style');
@@ -25,10 +27,7 @@ function injectStyles() {
             transition: opacity 0.3s ease;
         }
 
-        .video-industry:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-        }
+       
 
         .video-industry:hover::before {
             opacity: 1;
