@@ -51,11 +51,7 @@ function injectStyles() {
                 padding: 1rem;
             }
         }
-        .card-title {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            color: #333;
-        }
+        
         .card-text, .card-body ul {
             font-size: 1rem;
             line-height: 1.6;
