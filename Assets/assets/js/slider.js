@@ -1,7 +1,96 @@
 
 // SLIDER
+function injectStyles() {
+    const styleElement = document.createElement('style');
+    styleElement.textContent = `
+        .video-industry {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .video-industry::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(0,0,0,0.1), rgba(255,255,255,0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .video-industry:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .video-industry:hover::before {
+            opacity: 1;
+        }
+
+        .video-industry iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        @media (max-width: 768px) {
+            .video-industry {
+                padding-bottom: 75%;
+            }
+            .card-body {
+                padding: 1rem;
+            }
+        }
+        .card-title {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        .card-text, .card-body ul {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #555;
+        }
+        .card-body ul {
+            padding-left: 1.5rem;
+            font-size: 0.9rem;
+        }
+        .card-body li {
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        @media (max-width: 768px) {
+            .card-title {
+                font-size: 1.5rem;
+            }
+            .card-text, .card-body ul {
+                font-size: 1rem;
+            }
+        }
+    `;
+    document.head.appendChild(styleElement);
+    
+}
+
+
+// Call this function when your page loads or when you're adding the content
+injectStyles();
+
 const cardContents = {
+    
     hospitality: `
+
+    
     <div class="row g-0">
     <div class="col-md-6">
         <div class="card-body">
@@ -20,34 +109,14 @@ const cardContents = {
             </div>
     </div>
     <div class="col-md-6">
-        <div class="card-body d-flex align-items-center justify-content-center h-100">
-            <div class="video-industry">
-                <iframe class="rounded-video" src="https://www.youtube.com/embed/sjL6Gl6ZIqs" allowfullscreen style="border-radius: 10px;" allow="fullscreen"></iframe>
-            </div>
+    <div class="card-body d-flex align-items-center justify-content-center h-100">
+        <div class="video-industry position-relative overflow-hidden">
+            <div class="video-overlay"></div>
+            <iframe class="rounded-video" src="https://www.youtube.com/embed/sjL6Gl6ZIqs" allowfullscreen allow="fullscreen"></iframe>
+ 
         </div>
     </div>
-    <style>
-        .video-industry {
-            position: relative;
-            width: 100%;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
-        }
-        .rounded-video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-        @media (max-width: 768px) {
-            .video-industry {
-                padding-bottom: 75%; /* Increase height on mobile */
-            }
-            .card-body {
-                padding: 1rem; /* Reduce padding on mobile */
-            }
-        }
-    </style>
+</div>
 </div>
     `,
     manufacturing: `
@@ -82,6 +151,9 @@ const cardContents = {
     industry: `<div class="card-body"><h2>Industry Solutions</h2><p>Content for Industry...</p></div>`,
     hotel: `<div class="card-body"><h2>Hotel Solutions</h2><p>Content for Hotel...</p></div>`
 };
+
+
+
 
 function toggleCard(element, contentKey) {
     const contentCards = document.getElementById('contentCards');
