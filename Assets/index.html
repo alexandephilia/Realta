@@ -1704,6 +1704,8 @@
                             color: #6c757d;
                             margin-right: 20px;
                             flex-shrink: 0;
+                            align-self: flex-start;
+                            margin-top: 5px;
                         }
 
                         /* Styles for feature content */
@@ -1711,6 +1713,7 @@
                             display: flex;
                             flex-direction: column;
                             text-align: left;
+                            padding-right: 15px; /* Added spacing from right */
                         }
 
                         .feature-title {
@@ -1824,8 +1827,20 @@
                         </style>
 
                         <!-- Feature list container -->
-                            <div class="row pt-4">
-                                <div class="col-md-4 p-0">
+                            <div class="row p-5 feature-container">
+                                <style>
+                                    .feature-container {
+                                        background-color: #f8f9fa9d;
+                                        border-radius: 10px;
+                                    }
+                                    body.dark-mode .feature-container {
+                                        background-color: rgba(185, 185, 185, 0.13) !important;
+                                        backdrop-filter: blur(10px);
+                                        -webkit-backdrop-filter: blur(10px);
+                                        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.37);
+                                    }
+                                </style>
+                                <div class="col-md-4 p-0 pe-md-3">
                                     <ul class="list-unstyled" id="featureList">
                                         <!-- Feature items -->
                                         <li class="feature-item active" data-feature="hospitality">
@@ -1870,7 +1885,7 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <div class="col-md-8 media-content-solution">
+                                <div class="col-md-8 media-content-solution ps-md-3">
                                     <div id="featureContent" class="feature-content-wrapper">
                                         <div id="featureMedia"></div>
                                     </div>
