@@ -1740,18 +1740,35 @@
                         /* Media query for smaller screens */
                         @media (max-width: 768px) {
                             .feature-content-wrapper {
-                                border-radius: 15px;
+                                border-radius: 10px;
+                                width: 100%;
                             }
 
                             .feature-content-wrapper img,
                             .feature-content-wrapper iframe {
-                                border-radius: 15px;
+                                border-radius: 10px;
+                                width: 100%;
+                                height: auto;
+                                max-height: 400px;
+                                object-fit: cover;
                             }
 
-                            .feature-content-wrapper img {
-                                height: auto;
-                                max-height: 300px;
-                                object-fit: cover;
+                            .col-md-8 {
+                                padding-left: 0 !important;
+                                padding-right: 0 !important;
+                            }
+                        }
+
+                        /* Styles for wider content on larger screens */
+                        @media (min-width: 769px) {
+                            .feature-content-wrapper {
+                                width: 120%;
+                                margin-left: -10%;
+                            }
+
+                            .col-md-8 {
+                                padding-left: 0 !important;
+                                padding-right: 0 !important;
                             }
                         }
 
