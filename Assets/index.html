@@ -1675,8 +1675,8 @@
                         }
 
 
-                        /* Styles for feature items */
-                        .feature-item {
+                      /* Styles for feature items */
+                      .feature-item {
                             cursor: pointer;
                             padding: 15px;
                             margin-bottom: 20px;
@@ -1740,37 +1740,26 @@
                         /* Media query for smaller screens */
                         @media (max-width: 768px) {
                             .feature-content-wrapper {
-                                border-radius: 10px;
-                                width: 100%;
+                                border-radius: 15px;
                             }
 
                             .feature-content-wrapper img,
                             .feature-content-wrapper iframe {
-                                border-radius: 10px;
-                                width: 100%;
+                                border-radius: 15px;
+                            }
+
+                            .feature-content-wrapper img {
                                 height: auto;
-                                max-height: 400px;
+                                max-height: 300px;
                                 object-fit: cover;
                             }
 
-                            .col-md-8 {
-                                padding-left: 0 !important;
-                                padding-right: 0 !important;
-                            }
+                            .media-content-solution {
+                                padding-left: 0%;
+                                padding-right: 0%;
                         }
-
-                        /* Styles for wider content on larger screens */
-                        @media (min-width: 769px) {
-                            .feature-content-wrapper {
-                                width: 120%;
-                                margin-left: -10%;
-                            }
-
-                            .col-md-8 {
-                                padding-left: 0 !important;
-                                padding-right: 0 !important;
-                            }
-                        }
+                        
+                    }
 
                         /* Styles for feature description */
                         .feature-description {
@@ -1882,7 +1871,7 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <div class="col-md-8">
+                                <div class="col-md-8 media-content-solution">
                                     <div id="featureContent" class="feature-content-wrapper">
                                         <div id="featureMedia"></div>
                                     </div>
