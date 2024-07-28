@@ -9,9 +9,9 @@ function injectStyles() {
             position: relative;
             width: 100%;
             padding-bottom: 56.25%; /* 16:9 aspect ratio */
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             overflow: hidden;
         }
 
@@ -22,24 +22,34 @@ function injectStyles() {
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(45deg, rgba(0,0,0,0.1), rgba(255,255,255,0.1));
+            background: linear-gradient(135deg, rgba(0,0,0,0.2), rgba(255,255,255,0.1));
             opacity: 0;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.4s ease;
+            z-index: 1;
         }
 
-       
+        .video-industry:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+        }
 
         .video-industry:hover::before {
             opacity: 1;
         }
 
-        .video-industry iframe {
+        .video-industry iframe, .video-industry img {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             border: none;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .video-industry:hover iframe, .video-industry:hover img {
+            transform: scale(1.05);
         }
 
         @media (max-width: 768px) {
@@ -47,59 +57,62 @@ function injectStyles() {
                 padding-bottom: 75%;
             }
             .card-body {
-                padding: 1rem;
+                padding: 1.5rem;
             }
         }
         
         .card-text, .card-body ul {
-            font-size: 1rem;
-            line-height: 1.6;
-            color: #555;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #444;
         }
         .card-body ul {
-            padding-left: 1.5rem;
-            font-size: 0.9rem;
+            padding-left: 1.8rem;
+            font-size: 1rem;
         }
         .card-body li {
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
+            font-size: 1rem;
+            margin-bottom: 0.7rem;
+            position: relative;
+        }
+        .card-body li::before {
+            color: #7209d4;
+            font-weight: bold;
+            position: absolute;
+            left: -1.2rem;
         }
         @media (max-width: 768px) {
             .card-title {
-                font-size: 1.5rem;
+                font-size: 1.8rem;
             }
             .card-text, .card-body ul {
                 font-size: 1rem;
             }
         }
+      
     `;
     document.head.appendChild(styleElement);
-    
 }
-
 
 // Call this function when your page loads or when you're adding the content
 injectStyles();
 
 const cardContents = {
-    
     hospitality: `
-
-    
     <div class="row g-0">
     <div class="col-md-6">
         <div class="card-body">
-            <h2 class="card-title fw-bold">Hospitality Solutions</h2>
-            <p class="card-text">Discover innovative solutions tailored for the hospitality industry. Our comprehensive suite of tools and services helps you enhance guest experiences, streamline operations, and boost your bottom line. Key features include:</p>
-            <ul>
+            <h2 class="card-title fw-bold mb-4">Hospitality Solutions</h2>
+            <p class="card-text mb-4">Discover innovative solutions tailored for the hospitality industry. Our comprehensive suite of tools and services helps you enhance guest experiences, streamline operations, and boost your bottom line. Key features include:</p>
+            <ul class="mb-4">
                 <li>Smart reservation systems</li>
                 <li>Contactless check-in and check-out</li>
                 <li>Integrated property management</li>
                 <li>Guest analytics and personalization</li>
             </ul>
-            <p class="card-text">Transform your hospitality business with our cutting-edge technology and industry-specific expertise.</p>
+            <p class="card-text mb-4">Transform your hospitality business with our cutting-edge technology and industry-specific expertise.</p>
             <div class="button-wrapper">
-            <a href="#" class="btn-custom btn-sm mt-3">Read More</a>
+            <a href="#" class="btn-custom btn-sm mt-3">Explore Solutions</a>
         </div>
             </div>
     </div>
@@ -108,7 +121,6 @@ const cardContents = {
         <div class="video-industry position-relative overflow-hidden">
             <div class="video-overlay"></div>
             <iframe class="rounded-video" src="https://www.youtube.com/embed/sjL6Gl6ZIqs" allowfullscreen allow="fullscreen"></iframe>
- 
         </div>
     </div>
 </div>
@@ -117,36 +129,37 @@ const cardContents = {
     manufacturing: `
         <div class="row g-0">
             <div class="col-md-6">
-                <div class="card-body ">
-                    <h2 class="card-title fw-bold">Manufacturing Excellence</h2>
-                    <p class="card-text">Elevate your manufacturing processes with our state-of-the-art solutions. Our integrated platform is designed to optimize production, increase efficiency, and drive innovation in your manufacturing operations. Key benefits include:</p>
-                    <ul>
+                <div class="card-body">
+                    <h2 class="card-title fw-bold mb-4">Manufacturing Excellence</h2>
+                    <p class="card-text mb-4">Elevate your manufacturing processes with our state-of-the-art solutions. Our integrated platform is designed to optimize production, increase efficiency, and drive innovation in your manufacturing operations. Key benefits include:</p>
+                    <ul class="mb-4">
                         <li>Advanced production planning and scheduling</li>
                         <li>Real-time inventory management</li>
                         <li>Quality control and assurance systems</li>
                         <li>Predictive maintenance for equipment</li>
                     </ul>
-                    <p class="card-text">Empower your manufacturing business with data-driven insights and cutting-edge automation technologies.</p>
+                    <p class="card-text mb-4">Empower your manufacturing business with data-driven insights and cutting-edge automation technologies.</p>
                     <div class="button-wrapper">
-                        <a href="#" class="btn-custom btn-sm mt-3">Read More</a>
+                        <a href="#" class="btn-custom btn-sm mt-3">Discover More</a>
                     </div>
                     </div>
             </div>
             <div class="col-md-6">
                 <div class="card-body d-flex align-items-center justify-content-center h-100">
-                    <img src="https://d2csxpduxe849s.cloudfront.net/media/E32629C6-9347-4F84-81FEAEF7BFA342B3/700E4D82-4F55-4EE1-9B6CA0C194C84956/182DC208-2737-40B8-A720EEBF9FA9B88F/WebsiteJpg_XL-FMTEC_Main%20Visual_Red_Website.jpg" alt="Manufacturing Facility" class="img-fluid rounded">
+                    <div class="video-industry position-relative overflow-hidden">
+                        <img src="https://d2csxpduxe849s.cloudfront.net/media/E32629C6-9347-4F84-81FEAEF7BFA342B3/700E4D82-4F55-4EE1-9B6CA0C194C84956/182DC208-2737-40B8-A720EEBF9FA9B88F/WebsiteJpg_XL-FMTEC_Main%20Visual_Red_Website.jpg" alt="Manufacturing Facility" class="img-fluid rounded">
+                    </div>
                 </div>
             </div>
         </div>
     `,
     // Add more content for other tabs here
-    finance: `<div class="card-body"><h2>Bank & Finance Solutions</h2><p>Content for Bank & Finance...</p></div>`,
-    hr: `<div class="card-body"><h2>Human Resource Solutions</h2><p>Content for Human Resource...</p></div>`,
-    property: `<div class="card-body"><h2>Property Solutions</h2><p>Content for Property...</p></div>`,
-    industry: `<div class="card-body"><h2>Industry Solutions</h2><p>Content for Industry...</p></div>`,
-    hotel: `<div class="card-body"><h2>Hotel Solutions</h2><p>Content for Hotel...</p></div>`
+    finance: `<div class="card-body"><h2 class="fw-bold mb-4">Bank & Finance Solutions</h2><p>Content for Bank & Finance...</p></div>`,
+    hr: `<div class="card-body"><h2 class="fw-bold mb-4">Human Resource Solutions</h2><p>Content for Human Resource...</p></div>`,
+    property: `<div class="card-body"><h2 class="fw-bold mb-4">Property Solutions</h2><p>Content for Property...</p></div>`,
+    industry: `<div class="card-body"><h2 class="fw-bold mb-4">Industry Solutions</h2><p>Content for Industry...</p></div>`,
+    hotel: `<div class="card-body"><h2 class="fw-bold mb-4">Hotel Solutions</h2><p>Content for Hotel...</p></div>`
 };
-
 
 
 

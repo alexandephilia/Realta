@@ -1198,6 +1198,8 @@
             }
         </style>
 
+
+
         <section id="technology-delivery" class="clipped-section">
 
             <style>
@@ -1464,6 +1466,8 @@
             </div>
         </div>  -->
 
+        
+
         <section id="products">
             <style>
                 @media (max-width: 768px) {
@@ -1476,7 +1480,7 @@
                 }
             </style>
             <!-- PRODUCT 1 -->
-            <div class="container py-4 py-xl-5 product-container">
+            <div class="container py-4 pb-2 py-xl-5 product-container">
                 <div class="row gy-4 align-items-center position-relative">
                     <div class="shape-behind">
                         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -1622,6 +1626,9 @@
             </style>
         </section>
 
+        
+       
+
 
 
         <section id="industry" class="industry-section">
@@ -1673,312 +1680,9 @@
                                 font-size: 18px;
                             }
                         }
-
-
-                      /* Styles for feature items */
-                      .feature-item {
-                            cursor: pointer;
-                            padding: 15px;
-                            margin-bottom: 20px;
-                            border-radius: 5px;
-                            transition: background-color 0.3s, color 0.3s;
-                            width: 100%;
-                            display: flex;
-                            align-items: flex-start;
-                            font-size: 18px;
-                        }
-
-                        .feature-item:hover {
-                            background-color: #f8f9fa;
-                        }
-
-                        .feature-item.active {
-                            background-color: #e9ecef;
-                            font-weight: bold;
-                        }
-
-                        /* Styles for feature number */
-                        .feature-number {
-                            font-size: 24px;
-                            font-weight: bold;
-                            color: #6c757d;
-                            margin-right: 20px;
-                            flex-shrink: 0;
-                            align-self: flex-start;
-                            margin-top: 5px;
-                        }
-
-                        /* Styles for feature content */
-                        .feature-content {
-                            display: flex;
-                            flex-direction: column;
-                            text-align: left;
-                            padding-right: 15px; /* Added spacing from right */
-                        }
-
-                        .feature-title {
-                            font-weight: bold;
-                            text-align: left;
-                        }
-
-                        /* Styles for feature content wrapper */
-                        .feature-content-wrapper {
-                            position: relative;
-                            overflow: hidden;
-                            border-radius: 10px;
-                        }
-
-                        .feature-content-wrapper img,
-                        .feature-content-wrapper iframe {
-                            width: 100%;
-                            height: auto;
-                            border-radius: 10px;
-                        }
-
-                        .feature-content-wrapper iframe {
-                            aspect-ratio: 16 / 9;
-                            height: 100%;
-                        }
-
-                        /* Media query for smaller screens */
-                        @media (max-width: 768px) {
-                            .feature-content-wrapper {
-                                border-radius: 15px;
-                            }
-
-                            .feature-content-wrapper img,
-                            .feature-content-wrapper iframe {
-                                border-radius: 15px;
-                            }
-
-                            .feature-content-wrapper img {
-                                height: auto;
-                                max-height: 300px;
-                                object-fit: cover;
-                            }
-
-                            .media-content-solution {
-                                padding-left: 0%;
-                                padding-right: 0%;
-                        }
-                        
-                    }
-
-                        /* Styles for feature description */
-                        .feature-description {
-                            margin-top: 5px;
-                            font-size: 14px;
-                            color: #6c757d;
-                            font-weight: 400;
-                        }
-
-                        /* Styles for feature bullet points */
-                        .feature-bullet-points {
-                            list-style-type: none;
-                            padding-left: 0;
-                            margin-top: 10px;
-                        }
-
-                        .feature-bullet-points li {
-                            position: relative;
-                            padding-left: 20px;
-                            margin-bottom: 5px;
-                            font-size: 14px;
-                            color: #6a6b6d;
-                        }
-
-                        .feature-bullet-points li::before {
-                            content: '•';
-                            position: absolute;
-                            left: 0;
-                            color: #007bff;
-                            font-size: 18px;
-                            line-height: 1;
-                        }
-
-                        /* Dark mode styles */
-                        body.dark-mode .feature-item {
-                            color: #fff;
-                        }
-
-                        body.dark-mode .feature-item:hover {
-                            background-color: rgba(255, 255, 255, 0.1);
-                        }
-
-                        body.dark-mode .feature-item.active {
-                            background-color: rgba(255, 255, 255, 0.2);
-                        }
-
-                        body.dark-mode .feature-number {
-                            color: #a0a0a0;
-                        }
-
-                        body.dark-mode .feature-description {
-                            color: #b0b0b0;
-                        }
-
-                        body.dark-mode .feature-bullet-points li {
-                            color: #c0c0c0;
-                        }
-
-                        body.dark-mode .feature-bullet-points li::before {
-                            color: #4da3ff;
-                        }
-                        </style>
-
-                        <!-- Feature list container -->
-                            <div class="row p-5 feature-container">
-                                <style>
-                                    .feature-container {
-                                        background-color: #f8f9fa9d;
-                                        border-radius: 10px;
-                                    }
-                                    body.dark-mode .feature-container {
-                                        background-color: rgba(185, 185, 185, 0.13) !important;
-                                        backdrop-filter: blur(10px);
-                                        -webkit-backdrop-filter: blur(10px);
-                                        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.37);
-                                    }
-                                </style>
-                                <div class="col-md-4 p-0 pe-md-3">
-                                    <ul class="list-unstyled" id="featureList">
-                                        <!-- Feature items -->
-                                        <li class="feature-item active" data-feature="hospitality">
-                                            <span class="feature-number">01</span>
-                                            <div class="feature-content">
-                                                <span class="feature-title">Hospitality</span>
-                                                <div class="feature-description"></div>
-                                                <ul class="feature-bullet-points"></ul>
-                                            </div>
-                                        </li>
-                                        <li class="feature-item" data-feature="manufacturing">
-                                            <span class="feature-number">02</span>
-                                            <div class="feature-content">
-                                                <span class="feature-title">Manufacturing</span>
-                                                <div class="feature-description"></div>
-                                                <ul class="feature-bullet-points"></ul>
-                                            </div>
-                                        </li>
-                                        <li class="feature-item" data-feature="finance">
-                                            <span class="feature-number">03</span>
-                                            <div class="feature-content">
-                                                <span class="feature-title">Finance</span>
-                                                <div class="feature-description"></div>
-                                                <ul class="feature-bullet-points"></ul>
-                                            </div>
-                                        </li>
-                                        <li class="feature-item" data-feature="healthcare">
-                                            <span class="feature-number">04</span>
-                                            <div class="feature-content">
-                                                <span class="feature-title">Healthcare</span>
-                                                <div class="feature-description"></div>
-                                                <ul class="feature-bullet-points"></ul>
-                                            </div>
-                                        </li>
-                                        <li class="feature-item" data-feature="retail">
-                                            <span class="feature-number">05</span>
-                                            <div class="feature-content">
-                                                <span class="feature-title">Retail</span>
-                                                <div class="feature-description"></div>
-                                                <ul class="feature-bullet-points"></ul>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-8 media-content-solution ps-md-3">
-                                    <div id="featureContent" class="feature-content-wrapper">
-                                        <div id="featureMedia"></div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        <script>
-                        // Wait for the DOM to be fully loaded
-                        document.addEventListener('DOMContentLoaded', function() {
-                            const featureList = document.getElementById('featureList');
-                            const featureContent = document.getElementById('featureContent');
-                            const featureMedia = document.getElementById('featureMedia');
-
-                            // Define feature data
-                            const featureData = {
-                                hospitality: {
-                                    description: 'Innovative solutions for the hospitality industry.',
-                                    bulletPoints: ['Smart reservation systems', 'Contactless check-in', 'Guest analytics'],
-                                    media: '<iframe width="100%" height="315" src="https://www.youtube.com/embed/5yjaj5UZRlY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
-                                },
-                               
-                                manufacturing: {
-                                    description: 'Advanced solutions for the manufacturing sector.',
-                                    bulletPoints: ['Supply chain optimization', 'Quality control automation', 'Predictive maintenance'],
-                                    media: '<iframe width="100%" height="315" src="https://www.youtube.com/embed/NjmFaJuh6WI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
-                                },
-                                finance: {
-                                    description: 'Cutting-edge financial technology solutions.',
-                                    bulletPoints: ['Secure transactions', 'AI-driven analytics', 'Regulatory compliance'],
-                                    media: '<img src="https://d2csxpduxe849s.cloudfront.net/media/E32629C6-9347-4F84-81FEAEF7BFA342B3/700E4D82-4F55-4EE1-9B6CA0C194C84956/182DC208-2737-40B8-A720EEBF9FA9B88F/WebsiteJpg_XL-FMTEC_Main%20Visual_Red_Website.jpg" alt="Manufacturing Facility" class="img-fluid rounded">'
-                                },
-                                healthcare: {
-                                    description: 'Advanced healthcare management systems.',
-                                    bulletPoints: ['Electronic health records', 'Telemedicine integration', 'Patient monitoring'],
-                                    media: '<img src="path/to/healthcare-image.jpg" alt="Healthcare feature image">'
-                                },
-                                retail: {
-                                    description: 'Comprehensive retail management solutions.',
-                                    bulletPoints: ['Inventory management', 'POS systems', 'Customer loyalty programs'],
-                                    media: '<img src="path/to/retail-image.jpg" alt="Retail feature image">'
-                                }
-                            };
-
-                            // Function to update feature content
-                            function updateFeatureContent(feature) {
-                                const data = featureData[feature];
-                                const activeItem = featureList.querySelector('.feature-item.active');
-                                
-                                if (activeItem) {
-                                    const description = activeItem.querySelector('.feature-description');
-                                    const bulletPoints = activeItem.querySelector('.feature-bullet-points');
-                                    
-                                    description.textContent = data.description;
-                                    bulletPoints.innerHTML = data.bulletPoints.map(point => `<li>${point}</li>`).join('');
-                                    featureMedia.innerHTML = data.media;
-                                }
-                            }
-
-                            // Function to toggle active feature
-                            function toggleFeature(clickedItem) {
-                                featureList.querySelectorAll('.feature-item').forEach(item => {
-                                    if (item === clickedItem) {
-                                        item.classList.add('active');
-                                        item.querySelector('.feature-description').style.display = 'block';
-                                        item.querySelector('.feature-bullet-points').style.display = 'block';
-                                    } else {
-                                        item.classList.remove('active');
-                                        item.querySelector('.feature-description').style.display = 'none';
-                                        item.querySelector('.feature-bullet-points').style.display = 'none';
-                                    }
-                                });
-
-                                updateFeatureContent(clickedItem.dataset.feature);
-                            }
-
-                            // Add click event listener to feature list
-                            featureList.addEventListener('click', function(e) {
-                                const clickedItem = e.target.closest('.feature-item');
-                                if (clickedItem) {
-                                    toggleFeature(clickedItem);
-                                }
-                            });
-
-                            // Initialize with hospitality
-                            const initialFeature = featureList.querySelector('.feature-item.active');
-                            if (initialFeature) {
-                                updateFeatureContent(initialFeature.dataset.feature);
-                            }
-                        });
-                        </script>
-
-
-                    <!-- <div class="tags-container-wrapper">
+                    </style>
+                
+                <div class="tags-container-wrapper">
                         <div class="scroll-indicator scroll-left">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -2015,7 +1719,7 @@
                     </div>
                 </div>
                 <div id="contentCards" class="row justify-content-center p-4">
-                </div> -->
+                </div> 
 
 
 
@@ -2298,7 +2002,7 @@
             .card-text {
                 font-family: var(--font-family-base, 'Proxima Nova', sans-serif);
                 font-weight: 400;
-                font-size: 0.875rem;
+                font-size: 1rem;
                 line-height: 1.6;
                 color: var(--text-color, #333);
                 margin-bottom: 1.25rem;
@@ -2348,6 +2052,8 @@
                 }
             }
         </style>
+
+
 
         <!-- TESTIMONIAL -->
         <div id="video-overlay" class="video-overlay">
