@@ -1750,10 +1750,10 @@
                             transform: translateY(0);
                         }
                         .feature-item:hover {
-                            background-color: #f8f9fa;
+                            background-color: #f0e6ff; /* Light purple for hover */
                         }
                         .feature-item.active {
-                            background-color: #e9ecef;
+                            background-color: #e6d9ff; /* Slightly darker purple for active state */
                             font-weight: 500;
                         }
                         .feature-number {
@@ -1762,6 +1762,11 @@
                             color: #6c757d;
                             margin-right: 20px;
                             flex-shrink: 0;
+                            transition: color 0.3s, transform 0.3s;
+                        }
+                        .feature-item.active .feature-number {
+                            color: #8a2be2; /* Purple color for active state */
+                            transform: scale(1.1); /* Slightly larger when active */
                         }
                         .feature-content {
                             display: flex;
@@ -2087,7 +2092,7 @@
                                         scale: 1.05, 
                                         opacity: 1, 
                                         duration: 0.3, 
-                                        backgroundColor: '#e9ecef',
+                                        backgroundColor: '#e6d9ff', // Purple background for active state
                                         ease: "back.out(1.7)"
                                     });
                                     
