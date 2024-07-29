@@ -1672,7 +1672,456 @@
                         }
                     </style>
                 
-                <div class="tags-container-wrapper">
+
+                    <div class="container mt-10">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <ul class="list-unstyled" id="featureList" style="padding-top: 20px;">
+                                    <li class="feature-item active" data-feature="hospitality">
+                                        <span class="feature-number">01</span>
+                                        <div class="feature-content">
+                                            <span class="feature-title">Hospitality</span>
+                                            <div class="feature-description"></div>
+                                        </div>
+                                    </li>
+                                    <li class="feature-item" data-feature="manufacturing">
+                                        <span class="feature-number">02</span>
+                                        <div class="feature-content">
+                                            <span class="feature-title">Manufacturing</span>
+                                            <div class="feature-description"></div>
+                                        </div>
+                                    </li>
+                                    <li class="feature-item" data-feature="finance">
+                                        <span class="feature-number">03</span>
+                                        <div class="feature-content">
+                                            <span class="feature-title">Finance</span>
+                                            <div class="feature-description"></div>
+                                        </div>
+                                    </li>
+                                    <li class="feature-item" data-feature="healthcare">
+                                        <span class="feature-number">04</span>
+                                        <div class="feature-content">
+                                            <span class="feature-title">Healthcare</span>
+                                            <div class="feature-description"></div>
+                                        </div>
+                                    </li>
+                                    <li class="feature-item" data-feature="retail">
+                                        <span class="feature-number">05</span>
+                                        <div class="feature-content">
+                                            <span class="feature-title">Retail</span>
+                                            <div class="feature-description"></div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-8">
+                                <div id="featureContent" class="feature-content-wrapper">
+                                    <img id="featureImage" src="" alt="Feature Image">
+                                    <iframe id="featureVideo" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="display: none;"></iframe>
+                                    <div id="featureTextContent" class="mt-4">
+                                        <h3 id="featureTitle" class="slide-in text-left"></h3>
+                                        <p id="featureDescription" class="slide-in text-left"></p>
+                                        <ul id="featureBullets" class="slide-in text-left">
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="moving-text-section">
+                        <div data-w-id="822c0367-18d2-3dc9-4194-e4d4e3952f31" style="transform: translate3d(-2460.56px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d; will-change: transform;" class="moving-text-inner">
+                          <div class="moving-text">Comprehensive Inspections &nbsp; &nbsp; -&nbsp; &nbsp; &nbsp;Certified Technicians &nbsp;
+                            &nbsp;-&nbsp; &nbsp; &nbsp;Precision Repairs &nbsp; &nbsp; -&nbsp; &nbsp; &nbsp;Advanced Diagnostics &nbsp;
+                            &nbsp;- &nbsp; &nbsp; &nbsp;Premium Maintenance &nbsp; -&nbsp; &nbsp; Efficient Service &nbsp; &nbsp;- &nbsp;
+                            Top-Notch Support &nbsp; &nbsp;- &nbsp; &nbsp; Superior Workmanship &nbsp; &nbsp; -&nbsp; &nbsp;
+                            &nbsp;Transparent Pricing &nbsp; &nbsp; -&nbsp; &nbsp; &nbsp;Guaranteed Satisfaction</div>
+                        </div>
+                    </div>
+
+                    <style>
+                
+                        .feature-item {
+                            cursor: pointer;
+                            padding: 15px;
+                            margin-top: 20px;
+                            margin-bottom: 35px;
+                            border-radius: 5px;
+                            transition: background-color 0.3s;
+                            width: 80%;
+                            display: flex;
+                            align-items: left;
+                            font-size: 18px;
+                            opacity: 0;
+                            transform: translateY(20px);
+                            transition: opacity 0.5s, transform 0.5s, background-color 0.3s;
+                        }
+                        .feature-item.fade-in {
+                            opacity: 1;
+                            transform: translateY(0);
+                        }
+                        .feature-item:hover {
+                            background-color: #f8f9fa;
+                        }
+                        .feature-item.active {
+                            background-color: #e9ecef;
+                            font-weight: 500;
+                        }
+                        .feature-number {
+                            font-size: 24px;
+                            font-weight: bold;
+                            color: #6c757d;
+                            margin-right: 20px;
+                            flex-shrink: 0;
+                        }
+                        .feature-content {
+                            display: flex;
+                            flex-direction: column;
+                            padding-right: 15px;
+                        }
+                        .feature-title {
+                            font-weight: bold;
+                            text-align: left;
+                        }
+                        .feature-content-wrapper {
+                            position: relative;
+                            overflow: hidden;
+                            transition: opacity 0.5s;
+                            border-radius: 20px;
+                            display: flex;
+                            flex-direction: column;
+                        }
+                        .feature-content-wrapper img,
+                        .feature-content-wrapper iframe {
+                            width: 100%;
+                            height: auto;
+                            object-fit: cover;
+                            opacity: 0;
+                            transform: scale(0.5);
+                            transition: opacity 0.5s, transform 0.5s ease-out;
+                            border-radius: 20px 20px 0 0;
+                            margin-top: 26px;
+                        }
+                        .feature-content-wrapper iframe {
+                            height: 450px;
+                        }
+                        .feature-content-wrapper.fade-in img,
+                        .feature-content-wrapper.fade-in iframe {
+                            opacity: 1;
+                            transform: scale(1);
+                        }
+                        .feature-description {
+                            text-align: left;
+                            margin-top: 5px;
+                            font-size: 14px;
+                            color: #6c757d;
+                        }
+                        h1 {
+                            font-weight: 700;
+                            opacity: 0;
+                            transform: translateY(-20px);
+                            transition: opacity 0.5s, transform 0.5s;
+                        }
+                        h1.fade-in {
+                            opacity: 1;
+                            transform: translateY(0);
+                        }
+
+                        .slide-in {
+                            opacity: 0;
+                            transform: translateX(-50px);
+                            transition: opacity 0.5s, transform 0.5s;
+                        }
+                        .slide-in.active {
+                            opacity: 1;
+                            transform: translateX(0);
+                        }
+
+                        #featureTextContent {
+                            background: rgba(255, 255, 255, 0.2);
+                            backdrop-filter: blur(10px);
+                            padding: 20px;
+                            border-radius: 0 0 20px 20px;
+                            color: #333;
+                        }
+                        #featureTextContent h3 {
+                            margin-top: 0;
+                            text-align: left;
+                        }
+                        #featureTextContent ul {
+                            padding-left: 20px;
+                            text-align: left;
+                        }
+                        #featureTextContent p {
+                            text-align: left;
+                        }
+
+                        /* Mobile responsiveness */
+                        @media (max-width: 768px) {
+                            .feature-item {
+                                width: 100%;
+                                margin-top: 10px;
+                                margin-bottom: 20px;
+                                font-size: 20px !important;
+                            }
+                            .feature-number {
+                                font-size: 20px;
+                                margin-right: 10px;
+                            }
+                            .feature-content-wrapper iframe {
+                                height: 300px;
+                            }
+                            #featureTextContent {
+                                padding: 15px;
+                            }
+                            h1 {
+                                font-size: 24px;
+                            }
+                            #featureTextContent h3 {
+                                font-size: 20px;
+                            }
+                            #featureTextContent p,
+                            #featureTextContent ul {
+                                font-size: 15px !important;
+                            }
+                        }
+
+                        @media (max-width: 480px) {
+                            .feature-item {
+                                font-size: 14px;
+                            }
+                            .feature-number {
+                                font-size: 18px;
+                            }
+                            .feature-content-wrapper iframe {
+                                height: 200px;
+                            }
+                            h1 {
+                                font-size: 20px;
+                            }
+                            #featureTextContent h3 {
+                                font-size: 18px;
+                            }
+                            #featureTextContent p,
+                            #featureTextContent ul {
+                                font-size: 12px;
+                            }
+                        }
+                    </style>
+
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function() {
+                            const featureList = document.getElementById('featureList');
+                            const featureContent = document.getElementById('featureContent');
+                            const featureContentWrapper = document.getElementById('featureContent');
+                            const pageTitle = document.querySelector('h1');
+                            const featureTitle = document.getElementById('featureTitle');
+                            const featureDescription = document.getElementById('featureDescription');
+                            const featureBullets = document.getElementById('featureBullets');
+                            const featureImage = document.getElementById('featureImage');
+                            const featureVideo = document.getElementById('featureVideo');
+                
+                            const features = {
+                                hospitality: {
+                                    description: "Streamline hotel operations with our comprehensive hospitality management system.",
+                                    video: "https://www.youtube.com/embed/5yjaj5UZRlY",
+                                    title: "Hospitality Management",
+                                    bullets: [
+                                        "Efficient room booking and management",
+                                        "Integrated guest services",
+                                        "Revenue optimization tools"
+                                    ]
+                                },
+                                manufacturing: {
+                                    description: "Optimize production processes and inventory management for manufacturing industries.",
+                                    image: "https://d2csxpduxe849s.cloudfront.net/media/E32629C6-9347-4F84-81FEAEF7BFA342B3/700E4D82-4F55-4EE1-9B6CA0C194C84956/182DC208-2737-40B8-A720EEBF9FA9B88F/WebsiteJpg_XL-FMTEC_Main%20Visual_Red_Website.jpg",
+                                    title: "Manufacturing Solutions",
+                                    bullets: [
+                                        "Real-time production tracking",
+                                        "Supply chain management",
+                                        "Quality control integration"
+                                    ]
+                                },
+                                finance: {
+                                    description: "Secure and efficient financial management solutions for banks and financial institutions.",
+                                    video: "https://www.youtube.com/embed/0ncLRRLvdfk",
+                                    title: "Financial Services",
+                                    bullets: [
+                                        "Advanced fraud detection",
+                                        "Automated compliance reporting",
+                                        "Multi-currency support"
+                                    ]
+                                },
+                                healthcare: {
+                                    description: "Comprehensive healthcare management system for hospitals and clinics.",
+                                    image: "path_to_healthcare_image.jpg",
+                                    title: "Healthcare Management",
+                                    bullets: [
+                                        "Electronic health records (EHR)",
+                                        "Patient scheduling and billing",
+                                        "Telemedicine integration"
+                                    ]
+                                },
+                                retail: {
+                                    description: "Enhance customer experience and streamline operations for retail businesses.",
+                                    image: "/jan-display.96e60af5.png",
+                                    title: "Retail Solutions",
+                                    bullets: [
+                                        "Point of Sale (POS) systems",
+                                        "Inventory management",
+                                        "Customer loyalty programs"
+                                    ]
+                                }
+                            };
+                            function updateFeatureContent(feature, animate = true) {
+                                const featureItem = featureList.querySelector(`.feature-item[data-feature="${feature}"]`);
+                                const descriptionElement = featureItem.querySelector('.feature-description');
+                                
+                                if (animate) {
+                                    featureContentWrapper.classList.remove('fade-in');
+                                    
+                                    if (features[feature].video) {
+                                        featureImage.style.display = 'none';
+                                        featureVideo.style.display = 'block';
+                                        featureVideo.src = features[feature].video;
+                                    } else {
+                                        featureVideo.style.display = 'none';
+                                        featureImage.style.display = 'block';
+                                        featureImage.src = features[feature].image;
+                                    }
+                                    
+                                    // Use GSAP for smoother content animation
+                                    gsap.fromTo(featureContentWrapper, 
+                                        { opacity: 0, scale: 0.8 },
+                                        { 
+                                            opacity: 1, 
+                                            scale: 1, 
+                                            duration: 0.4, 
+                                            ease: "power2.out",
+                                            onStart: () => {
+                                                featureContentWrapper.classList.add('fade-in');
+                                            }
+                                        }
+                                    );
+                                    
+                                    descriptionElement.textContent = features[feature].description;
+                                    
+                                    gsap.fromTo(descriptionElement, 
+                                        { y: 20, opacity: 0 },
+                                        { y: 0, opacity: 1, duration: 0.5, delay: 0.3, ease: "power2.out" }
+                                    );
+                                } else {
+                                    if (features[feature].video) {
+                                        featureImage.style.display = 'none';
+                                        featureVideo.style.display = 'block';
+                                        featureVideo.src = features[feature].video;
+                                    } else {
+                                        featureVideo.style.display = 'none';
+                                        featureImage.style.display = 'block';
+                                        featureImage.src = features[feature].image;
+                                    }
+                                    descriptionElement.textContent = features[feature].description;
+                                    featureContentWrapper.classList.add('fade-in');
+                                }
+                
+                                // Update text content
+                                featureTitle.textContent = features[feature].title;
+                                featureDescription.textContent = features[feature].description;
+                                
+                                // Clear and update bullet points
+                                featureBullets.innerHTML = '';
+                                features[feature].bullets.forEach(bullet => {
+                                    const li = document.createElement('li');
+                                    li.textContent = bullet;
+                                    featureBullets.appendChild(li);
+                                });
+                
+                                if (animate) {
+                                    // Animate text content
+                                    [featureTitle, featureDescription, featureBullets].forEach((element, index) => {
+                                        element.classList.remove('active');
+                                        setTimeout(() => {
+                                            element.classList.add('active');
+                                        }, 100 * (index + 1));
+                                    });
+                                } else {
+                                    [featureTitle, featureDescription, featureBullets].forEach(element => {
+                                        element.classList.add('active');
+                                    });
+                                }
+                            }
+                
+                            featureList.addEventListener('click', function(e) {
+                                const clickedItem = e.target.closest('.feature-item');
+                                if (clickedItem && !clickedItem.classList.contains('active')) {
+                                    const previousActive = featureList.querySelector('.feature-item.active');
+                                    
+                                    // Reset the previously active item
+                                    if (previousActive) {
+                                        gsap.to(previousActive, { 
+                                            scale: 1, 
+                                            opacity: 1, 
+                                            backgroundColor: 'transparent', 
+                                            duration: 0.3 
+                                        });
+                                        previousActive.classList.remove('active');
+                                    }
+                
+                                    // Animate the clicked item
+                                    clickedItem.classList.add('active');
+                                    gsap.to(clickedItem, { 
+                                        scale: 1.05, 
+                                        opacity: 1, 
+                                        duration: 0.3, 
+                                        backgroundColor: '#e9ecef',
+                                        ease: "back.out(1.7)"
+                                    });
+                                    
+                                    const feature = clickedItem.getAttribute('data-feature');
+                                    updateFeatureContent(feature);
+                                }
+                            });
+                
+                            // Page load animations
+                            gsap.to(pageTitle, { opacity: 1, y: 0, duration: 0.5, delay: 0.2 });
+                            
+                            gsap.from('.feature-item', {
+                                opacity: 0,
+                                y: 20,
+                                duration: 0.5,
+                                stagger: 0.1,
+                                ease: "back.out(1.7)",
+                                onComplete: () => {
+                                    document.querySelectorAll('.feature-item').forEach(item => {
+                                        item.style.opacity = 1;
+                                        item.style.transform = 'translateY(0)';
+                                    });
+                                }
+                            });
+                
+                            // Set initial state to "01 Hospitality"
+                            const hospitalityFeature = document.querySelector('.feature-item[data-feature="hospitality"]');
+                            hospitalityFeature.classList.add('active');
+                            updateFeatureContent('hospitality', false);
+                
+                            // Animate the initial feature content
+                            setTimeout(() => {
+                                featureContentWrapper.classList.add('fade-in');
+                                gsap.to(featureContentWrapper, { 
+                                    opacity: 1, 
+                                    scale: 1, 
+                                    duration: 0.5, 
+                                    delay: 0.2 
+                                });
+                            }, 700);
+                        });
+                    </script>
+
+
+
+                
+                <!-- <div class="tags-container-wrapper">
                         <div class="scroll-indicator scroll-left">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -1709,7 +2158,7 @@
                     </div>
                 </div>
                 <div id="contentCards" class="row justify-content-center p-4">
-                </div> 
+                </div>  -->
 
 
 
